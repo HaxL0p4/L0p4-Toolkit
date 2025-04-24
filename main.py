@@ -1,26 +1,25 @@
+import getpass
+import ipaddress
+import json
+import logging
 import os
-import sys
+import random
+import re
 import socket
+import subprocess
+import sys
+import threading
+import time
+import urllib.request
+from queue import Queue
+
+import colorama
+import dns.resolver
 import requests
 import whois
-from scapy.all import sniff, ARP, send, DNSQR, IP
-import dns.resolver
-import time
-import random
-from queue import Queue
-import getpass
-import urllib.request
-import logging
-import subprocess
-import threading
-import json
-import re
-import ipaddress
-import colorama
 from colorama import Fore, Style
-
-import requests, re , colorama ,random
 from requests.structures import CaseInsensitiveDict
+from scapy.all import sniff, ARP, send, DNSQR, IP
 
 username = getpass.getuser()
 colorama.init()
@@ -515,6 +514,12 @@ def CCTV():
 def main():
     os.system("clear")
     text_animation(title, 0.001)
+
+    text_animation(f"{Fore.YELLOW} \t\t\t\tMade by {Style.RESET_ALL}{Fore.LIGHTRED_EX}L0pa{Style.RESET_ALL}{Fore.YELLOW} ;)\n", 0.001)
+    text_animation(f"{Fore.CYAN} \t\t\t\tTikTok: {Style.RESET_ALL}{Fore.LIGHTBLUE_EX}@_.l0pa._\n\n{Style.RESET_ALL}", 0.001)
+
+    print(f"{Fore.CYAN}--- Main Menu ---{Style.RESET_ALL}")
+
     print(f"{Fore.CYAN}\n [1] Information Gathering\n [2] Web Hacking\n [3] Network\n [4] Remote Access\n [5] Wireless Tools\n [6] DoS Attack\n [7] Ip Geolocation\n [8] CCTV Cam's\n\n{Style.RESET_ALL} {Fore.RED}[0] Exit{Style.RESET_ALL}\n")
     s = input(f"{Fore.GREEN}root@{username}:~$ {Style.RESET_ALL}")
 
