@@ -1,43 +1,36 @@
-<h1 align="center">L0p4 Framework</h1>
-<img src="https://github.com/HaxL0p4/L0p4-Framework/blob/main/logo.png" align="center">
-
+<h1 align="center">🕶️⚡ L0p4 Framework ⚡🕶️</h1>
+<p align="center"><i>┌─[ multi-tool offensive kit for digital shadows ]─┐</i></p>
 <p align="center">
-  **L0p4 Framework** is a multi-tool **offensive security framework** for ethical hacking, information gathering, network analysis, and DoS simulation.  
-Built in Python, it includes modular functions for reconnaissance, subdomain enumeration, port scanning, MITM attacks, and more. 
-  <br />
+  <img src="https://github.com/HaxL0p4/L0p4-Framework/blob/main/logo.png" width="250">
 </p>
 
 ---
-## 📦 Features
 
-- 🎯 **Information Gathering**
-  - WHOIS Lookup
-  - DNS Lookup
-  - Subdomain Enumeration
-  - Port Scanner
-
-- 🌐 **Network Tools**
-  - Local Network Scanner (via `arp-scan`)
-  - Netcat Listener
-  - ARP Spoofing (MITM)
-  - DNS Sniffer
-
-- 💥 **DoS Simulation**
-  - Multi-threaded TCP flooding
-  - Bot-powered indirect traffic
-  - Custom headers support
-
-- 🛑 **Planned Modules (Coming Soon)**
-  - Web Scanner
-  - Exploitation Tools
-  - Wireless Attacks
-  - Reverse Shells & Remote Access
+<p align="center">
+  <code>L0p4 Framework</code> is a modular <b>cyber offensive suite</b> forged for <i>hackers</i>.  
+  Unleash the power of Python to <b>recon, breach, scan & simulate chaos</b> on the wire.  
+  Tools for subdomain crawling, ARP-based MITM, and full-blown DoS artillery — all in one dark terminal.
+</p>
 
 ---
 
-## 🚀 Installation
-
-```bash
-git clone https://github.com/yourusername/HaxL0p4.git
-cd HaxL0p4
-pip install -r requirements.txt
+```shell
+┌─[ L0p4 vX.X | cyberwarfare toolbox ]─┐
+│                                       │
+│  🎯 RECON & INTEL:                    │
+│     • WHOIS 🔍                        │
+│     • DNS Lookup 🌐                   │
+│     • Subdomain Bruteforce 📛         │
+│     • Port Scanner 🛠️                 │
+│                                       │
+│  🌐 NETWORK SURVEILLANCE:             │
+│     • arp-scan LAN map 🛰️            │
+│     • Netcat Listener ☎️              │
+│     • ARP Spoofing (MITM) 🧬          │
+│     • DNS Packet Sniffer 🧫           │
+│                                       │
+│  💣 DoS SIMULATION LAB:               │
+│     • TCP Flooder (multi-threaded)   │
+│     • Zombie Redirect Botnet ☠️       │
+│     • Custom Payload Headers 🎭       │
+└───────────────────────────────────────┘
