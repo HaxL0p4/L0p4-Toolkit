@@ -7,9 +7,7 @@
 ---
 
 <p align="center">
-  <code>L0p4 Framework</code> is a modular <b>cyber offensive suite</b> forged for <i>hackers</i>.  
-  Unleash the power of Python to <b>recon, breach, scan & simulate chaos</b> on the wire.  
-  Tools for subdomain crawling, ARP-based MITM, and full-blown DoS artillery — all in one dark terminal.
+  <code>L0p4 Framework</code> is a powerful, multi-functional Python hacking toolkit designed for advanced security professionals. It features cutting-edge tools for: information gathering, web hacking, network exploitation, remote access, DoS attacks, IP geolocation, and CCTV camera hacking.
 </p>
 
 ---
