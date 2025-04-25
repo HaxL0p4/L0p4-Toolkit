@@ -24,6 +24,41 @@ from scapy.all import sniff, ARP, send, DNSQR, IP
 username = getpass.getuser()
 colorama.init()
 
+
+
+ascii_text = f"""
+⠀⠀⣿⠲⠤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⣸⡏⠀⠀⠀⠉⠳⢄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⣿⠀⠀⠀⠀⠀⠀⠀⠉⠲⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢰⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠲⣄⠀⠀⠀⡰⠋⢙⣿⣦⡀⠀⠀⠀⠀⠀
+⠸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣙⣦⣮⣤⡀⣸⣿⣿⣿⣆⠀⠀⠀⠀
+⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣿⣿⣿⠀⣿⢟⣫⠟⠋⠀⠀⠀⠀
+⠀⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⣿⣿⣿⣷⣷⣿⡁⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⢹⣿⣿⣧⣿⣿⣆⡹⣖⡀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢾⣿⣤⣿⣿⣿⡟⠹⣿⣿⣿⣿⣷⡀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣧⣴⣿⣿⣿⣿⠏⢧⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠈⢳⡀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡏⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⢳
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠸⣿⣿⣿⣿⣿⣿⣿⣿⠏⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡇⢠⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠃⢸⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣼⢸⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⢸⣿⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠛⠻⠿⣿⣿⣿⡿⠿⠿⠿⠿⠿⢿⣿⣿⠏⠀⠀⠀⠀⠀⠀
+""" 
+
+
+def close_program():
+    os.system("clear")
+    text_animation(ascii_text, 0.001)
+    text_animation(f"\n{Fore.RED}[💀] Closing The Program...{Style.RESET_ALL}\n", 0.02)
+
+
 title = f"""{Fore.CYAN}
     __    ____        __ __     _____                                              __  
    / /   / __ \\____  / // /    / ____/________ _____ ___  ___ _      ______  _____/ /__
@@ -137,12 +172,14 @@ def port_scanner():
 
 
 def information_gathering():
-    print(f"\n{Fore.CYAN}--- Information Gathering ---{Style.RESET_ALL}")
-    print(" [1] WHOIS Lookup")
-    print(" [2] DNS Lookup")
-    print(" [3] Subdomain Scanner")
-    print(" [4] Port Scanner\n")
-    print(" [0] Menu\n")
+    os.system("clear")
+    text_animation(title, 0.001)
+    print(f"\n{Fore.LIGHTCYAN_EX} --- Information Gathering ---{Style.RESET_ALL}")
+    print(f" \n{Fore.CYAN} [{Fore.WHITE}1{Fore.CYAN}] WHOIS Lookup")
+    print(f" [{Fore.WHITE}2{Fore.CYAN}] DNS Lookup")
+    print(f" [{Fore.WHITE}3{Fore.CYAN}] Subdomain Scanner")
+    print(f" [{Fore.WHITE}4{Fore.CYAN}] Port Scanner\n")
+    print(f" [{Style.RESET_ALL}{Fore.RED}0{Style.RESET_ALL}{Fore.CYAN}] Menu\n {Style.RESET_ALL}")
 
     choice = input(f"{Fore.GREEN}root@{username}/info:~$ {Style.RESET_ALL}")
 
@@ -323,14 +360,16 @@ def netcat_listener():
 
 
 def network():
-    print(f"\n{Fore.CYAN}--- Network ---{Style.RESET_ALL}")
-    print(" [1] Network Scanner")
-    print(" [2] Port Scanner")
-    print(" [3] Web Spy")
-    print(" [4] Netcat Listener")
-    print(" [5] Evil Portal")
-    print(" [6] CCTV Cam's\n")
-    print(" [0] Return To Menu\n")
+    os.system("clear")
+    text_animation(title, 0.001)
+    print(f"\n{Fore.LIGHTCYAN_EX} --- Network ---{Style.RESET_ALL}\n")
+    print(f" {Fore.CYAN}[{Fore.WHITE}1{Fore.CYAN}] Network Scanner")
+    print(f" [{Fore.WHITE}2{Fore.CYAN}] Port Scanner")
+    print(f" [{Fore.WHITE}3{Fore.CYAN}] Web Spy")
+    print(f" [{Fore.WHITE}4{Fore.CYAN}] Netcat Listener")
+    print(f" [{Fore.WHITE}5{Fore.CYAN}] Evil Portal")
+    print(f"\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}] Exit{Style.RESET_ALL}")
+
     choice = input(f"{Fore.GREEN}root@{username}/network:~$ {Style.RESET_ALL}")
 
     match (choice):
@@ -456,71 +495,101 @@ def ip_geo():
         print("Option Not Valid...")
 
 
+def typewriter(text, delay=0.02):
+    for char in text:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(delay)
+    print()
+
+def banner():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print("\033[1;32m")
+    print(" ▄████▄   ▄████▄  ▄▄▄█████▓ ██▒   █▓")
+    print("▒██▀ ▀█  ▒██▀ ▀█  ▓  ██▒ ▓▒▓██░   █▒")
+    print("▒▓█    ▄ ▒▓█    ▄ ▒ ▓██░ ▒░ ▓██  █▒░")
+    print("▒▓▓▄ ▄██▒▒▓▓▄ ▄██▒░ ▓██▓ ░   ▒██ █░░")
+    print("▒ ▓███▀ ░▒ ▓███▀ ░  ▒██▒ ░    ▒▀█░  ")
+    print("░ ░▒ ▒  ░░ ░▒ ▒  ░  ▒ ░░      ░ ▐░  ")
+    print("░  ▒     ░  ▒       ░       ░ ░░    ")
+    print("░        ░          ░           ░░  ")
+    print("░ ░      ░ ░                     ░  ")
+    print("░        ░                      ░   ")
+    print("         \033[1;37mCreated by \033[1;31mL0pa 💻\033[0m\n")
+    typewriter("\033[1;36m[~] Initializing access to unsecured CCTV feeds...\033[0m", 0.03)
+
 def CCTV():
-
-
+    banner()
     url = "http://www.insecam.org/en/jsoncountries/"
-
     headers = CaseInsensitiveDict()
-    headers["Accept"] = "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
-    headers["Cache-Control"] = "max-age=0"
-    headers["Connection"] = "keep-alive"
-    headers["Host"] = "www.insecam.org"
-    headers["Upgrade-Insecure-Requests"] = "1"
-    headers["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+    headers["Accept"] = "*/*"
+    headers["User-Agent"] = "Mozilla/5.0 (X11; Linux x86_64)"
 
-
-    resp = requests.get(url, headers=headers)
-
-    data = resp.json()
-    countries = data['countries']
-
-
-    for key, value in countries.items():
-        print(f'Code : ({key}) - {value["country"]} / ({value["count"]})  ')
-        print("")
-
-
+    country = None
     try:
-    
+        typewriter("\033[1;34m[+] Retrieving country codes...\033[0m", 0.02)
+        resp = requests.get(url, headers=headers)
 
-        country = input("Code(##) : ")
-        res = requests.get(
-            f"http://www.insecam.org/en/bycountry/{country}", headers=headers
-        )
-        last_page = re.findall(r'pagenavigator\("\?page=", (\d+)', res.text)[0]
+        try:
+            data = resp.json()
+            countries = data.get('countries', {})
+        except Exception:
+            print("\033[1;33m[!] Warning: Could not parse JSON. Falling back to legacy mode...\033[0m")
+            countries = {}
 
-        for page in range(int(last_page)):
-            res = requests.get(
-                f"http://www.insecam.org/en/bycountry/{country}/?page={page}",
-                headers=headers
-            )
-            find_ip = re.findall(r"http://\d+.\d+.\d+.\d+:\d+", res.text)
+        if not countries:
+            print("\033[1;33m[!] Could not load country list. Enter code manually.\033[0m")
+        else:
+            print("\n\033[1;32m=== Available Country Codes ===\033[0m")
+            for key, value in countries.items():
+                print(f'\033[1;36mCode: ({key}) - {value["country"]} ({value["count"]})\033[0m')
 
-            with open(f'{country}.txt', 'w') as f:
-              for ip in find_ip:
-                  print("")
-                  print("\033[1;31m", ip)
-                  f.write(f'{ip}\n')
-    except:
-        pass
+        print("")
+        country = input("\033[1;33m[?] Enter country code (e.g. JP, RU, US): \033[0m").strip().upper()
+
+        typewriter(f"\033[1;34m[+] Scanning feeds in region: {country}...\033[0m", 0.03)
+        res = requests.get(f"http://www.insecam.org/en/bycountry/{country}", headers=headers)
+        last_page = re.findall(r'pagenavigator\("\?page=", (\d+)', res.text)
+        last_page = int(last_page[0]) if last_page else 1
+
+        with open(f'{country}.txt', 'w') as f:
+            for page in range(last_page):
+                res = requests.get(
+                    f"http://www.insecam.org/en/bycountry/{country}/?page={page}",
+                    headers=headers
+                )
+                find_ip = re.findall(r"http://\d+\.\d+\.\d+\.\d+:\d+", res.text)
+                for ip in find_ip:
+                    print(f"\033[1;31m[+] Found feed: {ip}\033[0m")
+                    f.write(f'{ip}\n')
+                    time.sleep(0.05)
+
+    except Exception as e:
+        print(f"\033[1;31m[!] Error during execution: {e}\033[0m")
+
     finally:
-        print("\033[1;37m")
-        print('\033[37mSave File :'+country+'.txt')
-
+        if country:
+            print(f"\n\033[1;32m[✓] Feeds saved to file: \033[1;37m{country}.txt\033[0m")
+        else:
+            print("\033[1;33m[~] No feeds saved due to earlier error.\033[0m")
+        print("\033[1;30m[>] Exiting session...\033[0m")
+        time.sleep(1)
         exit()
+
 
 
 def main():
     os.system("clear")
+    #print(f"{Fore.CYAN}{ascii_text}{Style.RESET_ALL}")
     text_animation(title, 0.001)
 
-    text_animation(f"{Fore.YELLOW} \t\t\t\tMade by {Style.RESET_ALL}{Fore.LIGHTRED_EX}L0pa{Style.RESET_ALL}{Fore.YELLOW} ;)\n", 0.001)
+    text_animation(f"                                \033[1;37mCreated by \033[1;31mL0pa 💻\033[0m\n", 0.001)
+    #print("\n                           \033[1;37mCreated by \033[1;31mL0pa 💻\033[0m\n")
     text_animation(f"{Fore.CYAN} \t\t\t\tTikTok: {Style.RESET_ALL}{Fore.LIGHTBLUE_EX}@_.l0pa._\n\n{Style.RESET_ALL}", 0.001)
 
-    print(f"{Fore.CYAN}--- Main Menu ---{Style.RESET_ALL}")
+    print(f"{Fore.LIGHTCYAN_EX} --- Main Menu ---{Style.RESET_ALL}")
 
-    print(f"{Fore.CYAN}\n [1] Information Gathering\n [2] Web Hacking\n [3] Network\n [4] Remote Access\n [5] Wireless Tools\n [6] DoS Attack\n [7] Ip Geolocation\n [8] CCTV Cam's\n\n{Style.RESET_ALL} {Fore.RED}[0] Exit{Style.RESET_ALL}\n")
+    print(f"{Fore.CYAN}\n [{Fore.WHITE}1{Fore.CYAN}] Information Gathering\n [{Fore.BLACK}2{Fore.CYAN}] Web Hacking\n [{Fore.WHITE}3{Fore.CYAN}] Network\n [{Fore.BLACK}4{Fore.CYAN}] Remote Access\n [{Fore.BLACK}5{Fore.CYAN}] Wireless Tools\n [{Fore.WHITE}6{Fore.CYAN}] DoS Attack\n [{Fore.WHITE}7{Fore.CYAN}] Ip Geolocation\n [{Fore.WHITE}8{Fore.CYAN}] CCTV Cam's\n\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}] Exit{Style.RESET_ALL}\n")
     s = input(f"{Fore.GREEN}root@{username}:~$ {Style.RESET_ALL}")
 
     match s:
@@ -544,7 +613,7 @@ def main():
         case "8":
             CCTV()
         case "0":
-            sys.exit()
+            close_program()
         case _:
             print(f"{Fore.RED}Invalid input.{Style.RESET_ALL}")
             main()
@@ -552,4 +621,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    main()  
