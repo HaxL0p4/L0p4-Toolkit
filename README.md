@@ -2,9 +2,9 @@
 <img src="https://github.com/HaxL0p4/L0p4-Framework/blob/main/logo.png" align="center">
 
 <p align="center">
-  A dark-themed, skull-flavored project that goes beyond your average repository.  
+  **L0p4 Framework** is a multi-tool **offensive security framework** for ethical hacking, information gathering, network analysis, and DoS simulation.  
+Built in Python, it includes modular functions for reconnaissance, subdomain enumeration, port scanning, MITM attacks, and more. 
   <br />
-  <strong>Powerful. Simple. Coming soon with 3 epic options.</strong>
 </p>
 
 ---
