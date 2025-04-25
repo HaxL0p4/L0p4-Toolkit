@@ -11,3 +11,14 @@
 </p>
 
 ---
+### [+] Installation
+
+##### Install requirements
+
+To launch and install the necessary requirements for L0p4 Framework:
+      
+    pip install -r requirements.txt
+
+To Launch the program:
+    
+    python3 main.py
