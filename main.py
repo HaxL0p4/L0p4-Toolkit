@@ -100,7 +100,7 @@ def whois_lookup():
         print(f"{Fore.GREEN}{w}{Style.RESET_ALL}")
     except Exception as e:
         print(f"{Fore.RED}WHOIS error: {e}{Style.RESET_ALL}")
-    ask_next_action(whois_lookup, information_gathering, "Information Gathering")
+    ask_next_action(whois_lookup, web_hacking, "Web Hacking")
 
 
 
@@ -112,7 +112,7 @@ def dns_lookup():
             print(f"{Fore.GREEN}[+] IP: {ip}{Style.RESET_ALL}")
     except Exception as e:
         print(f"{Fore.RED}DNS error: {e}{Style.RESET_ALL}")
-    ask_next_action(dns_lookup, information_gathering, "Information Gathering")
+    ask_next_action(dns_lookup, web_hacking, "Web Hacking")
 
 
 
@@ -139,7 +139,7 @@ def subdomain_scanner():
 
     if not wordlist:
         print(f"{Fore.RED}Aborting scan: no subdomains loaded.{Style.RESET_ALL}")
-        ask_next_action(subdomain_scanner, information_gathering, "Information Gathering")
+        ask_next_action(subdomain_scanner, web_hacking, "Web Hacking")
         return
 
     print(f"\n{Fore.YELLOW}[*] Scanning subdomains...{Style.RESET_ALL}")
@@ -150,7 +150,7 @@ def subdomain_scanner():
             print(f"{Fore.GREEN}[+] Found: {url}{Style.RESET_ALL}")
         except socket.gaierror:
             continue
-    ask_next_action(subdomain_scanner, information_gathering, "Information Gathering")
+    ask_next_action(subdomain_scanner, web_hacking, "Web Hacking")
 
 
 
@@ -168,40 +168,7 @@ def port_scanner():
         except:
             pass
         s.close()
-    ask_next_action(port_scanner, information_gathering, "Information Gathering")
-
-
-
-def information_gathering():
-    os.system("clear")
-    text_animation(title, 0.0005)
-    print(f"\n{Fore.LIGHTCYAN_EX} --- Information Gathering ---{Style.RESET_ALL}")
-    print(f" \n{Fore.CYAN} [{Fore.WHITE}1{Fore.CYAN}] WHOIS Lookup")
-    print(f" [{Fore.WHITE}2{Fore.CYAN}] DNS Lookup")
-    print(f" [{Fore.WHITE}3{Fore.CYAN}] Subdomain Scanner")
-    print(f" [{Fore.WHITE}4{Fore.CYAN}] Port Scanner\n")
-    print(f" [{Style.RESET_ALL}{Fore.RED}0{Style.RESET_ALL}{Fore.CYAN}] Menu\n {Style.RESET_ALL}")
-
-    choice = input(f"{Fore.GREEN}root@{username}/info:~$ {Style.RESET_ALL}")
-
-    match choice:
-        case "1":
-            text_animation(f"{Fore.CYAN}\n[+] Executing WHOIS Lookup...\n{Style.RESET_ALL}", 0.02)
-            whois_lookup()
-        case "2":
-            text_animation(f"{Fore.CYAN}\n[+] Executing DNS Lookup...\n{Style.RESET_ALL}", 0.02)
-            dns_lookup()
-        case "3":
-            text_animation(f"{Fore.CYAN}\n[+] Executing Subdomain Scan...\n{Style.RESET_ALL}", 0.02)
-            subdomain_scanner()
-        case "4":
-            text_animation(f"{Fore.CYAN}\n[+] Executing Port Scan...\n{Style.RESET_ALL}", 0.02)
-            port_scanner()
-        case "0":
-            main()
-        case _:
-            print(f"{Fore.RED}Invalid input.{Style.RESET_ALL}")
-            information_gathering()
+    ask_next_action(port_scanner, web_hacking, "Web Hacking")
 
 
 
@@ -215,7 +182,7 @@ def web_hacking():
 
     print(f"{Fore.LIGHTCYAN_EX} --- Main Menu ---{Style.RESET_ALL}")
 
-    print(f"{Fore.CYAN}\n [{Fore.WHITE}1{Fore.CYAN}] SQLMap\n [{Fore.WHITE}2{Fore.CYAN}] xsstrike\n\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}] Menu{Style.RESET_ALL}\n")
+    print(f"{Fore.CYAN}\n [{Fore.WHITE}1{Fore.CYAN}] SQLMap\n [{Fore.WHITE}2{Fore.CYAN}] xsstrike\n [{Fore.WHITE}3{Fore.CYAN}] WHOIS Lookup\n [{Fore.WHITE}4{Fore.CYAN}] DNS Lookup\n [{Fore.WHITE}5{Fore.CYAN}] Subdomain Scanner\n [{Fore.WHITE}6{Fore.CYAN}] Port Scanner\n\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}] Menu{Style.RESET_ALL}\n")
     s = input(f"{Fore.GREEN}root@{username}/WebHacking:~$ {Style.RESET_ALL}")
 
 
@@ -223,7 +190,20 @@ def web_hacking():
         url = input(f"{Fore.GREEN}{Style.BRIGHT}> {Fore.CYAN}[+] Enter Target URL: {Style.RESET_ALL}")
         if (s) == "1": run_sqlmap(url)
         else: run_xsstrike(url)
-    elif s == "0": main()
+    
+    match (s):
+        case "3":
+            whois_lookup()
+        case "4":
+            dns_lookup()
+        case "5":
+            subdomain_scanner()
+        case "6":
+            port_scanner()
+        case "0":
+            main()
+        case _:
+            web_hacking()
             
 
 
@@ -604,45 +584,45 @@ def CCTV():
 
 
 def update_lopa_toolkit():
-    text_animation(f"{Fore.YELLOW}[+] Starting Upgrade...{Style.RESET_ALL}", 0.02)
+    text_animation(f"\n{Fore.YELLOW}[+] Starting Upgrade...{Style.RESET_ALL}", 0.02)
     try:
-        subprocess.run(["git", "pull"], check=True)
+        subprocess.run(["git", "pull"], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
     except subprocess.CalledProcessError:
-        text_animation(f"{Fore.RED}[-] Error During The Update!...{Style.RESET_ALL}", 0.02)
+        text_animation(f"\n{Fore.RED}[-] Error During The Update!...{Style.RESET_ALL}", 0.02)
 
 
 def main():
     os.system("clear")
+    #print(f"{Fore.CYAN}{ascii_text}{Style.RESET_ALL}")
     text_animation(title, 0.0005)
 
     text_animation(f"                                \033[1;37mCreated by \033[1;31mL0pa 💻\033[0m\n", 0.0005)
+    #print("\n                           \033[1;37mCreated by \033[1;31mL0pa 💻\033[0m\n")
     text_animation(f"{Fore.CYAN} \t\t\t\tTikTok: {Style.RESET_ALL}{Fore.LIGHTBLUE_EX}@_.l0pa._\n\n{Style.RESET_ALL}", 0.0005)
 
     print(f"{Fore.LIGHTCYAN_EX} --- Main Menu ---{Style.RESET_ALL}")
 
-    print(f"{Fore.CYAN}\n [{Fore.WHITE}1{Fore.CYAN}] Information Gathering\n [{Fore.WHITE}2{Fore.CYAN}] Web Hacking\n [{Fore.WHITE}3{Fore.CYAN}] Network\n [{Fore.BLACK}4{Fore.CYAN}] Remote Access\n [{Fore.BLACK}5{Fore.CYAN}] Wireless Tools\n [{Fore.WHITE}6{Fore.CYAN}] DoS Attack\n [{Fore.WHITE}7{Fore.CYAN}] Ip Geolocation\n [{Fore.WHITE}8{Fore.CYAN}] CCTV Cam's\n\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}]  Exit\n [{Style.RESET_ALL}{Fore.YELLOW}99{Fore.CYAN}] Update L0p4 Toolkit{Style.RESET_ALL}\n")
+    print(f"{Fore.CYAN}\n [{Fore.WHITE}1{Fore.CYAN}] Web Hacking\n [{Fore.WHITE}2{Fore.CYAN}] Network\n [{Fore.BLACK}3{Fore.CYAN}] Remote Access\n [{Fore.BLACK}4{Fore.CYAN}] Wireless Tools\n [{Fore.WHITE}5{Fore.CYAN}] DoS Attack\n [{Fore.WHITE}6{Fore.CYAN}] Ip Geolocation\n [{Fore.WHITE}7{Fore.CYAN}] CCTV Cam's\n [{Fore.BLACK}8{Fore.CYAN}] OSINT\n\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}]  Exit\n [{Style.RESET_ALL}{Fore.YELLOW}99{Fore.CYAN}] Update L0p4 Toolkit{Style.RESET_ALL}\n")
     s = input(f"{Fore.GREEN}root@{username}:~$ {Style.RESET_ALL}")
 
     match s:
         case "1":
-            information_gathering()
-        case "2":
             web_hacking()
-        case "3":
+        case "2":
             network()
-        case "4":
+        case "3":
             remote_access()
             # coming soon
-        case "5":
+        case "4":
             wireless_tools()
             # coming soon
-        case "6":
+        case "5":
             dos()
-        case "7":
+        case "6":
             ip_geo()
-        case "8":
+        case "7":
             CCTV()
-        case "0":
+        case "8":
             close_program()
         case "99":
             update_lopa_toolkit()
