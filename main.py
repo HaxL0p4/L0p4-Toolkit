@@ -55,17 +55,18 @@ ascii_text = f"""
 
 def close_program():
     os.system("clear")
-    text_animation(ascii_text, 0.001)
+    text_animation(ascii_text, 0.0005)
     text_animation(f"\n{Fore.RED}[💀] Closing The Program...{Style.RESET_ALL}\n", 0.02)
 
 
 title = f"""{Fore.CYAN}
-    __    ____        __ __     _____                                              __  
-   / /   / __ \\____  / // /    / ____/________ _____ ___  ___ _      ______  _____/ /__
-  / /   / / / / __ \\/ // /_   / /_  / ___/ __ `/ __ `__ \\/ _ \\ | /| / / __ \\/ ___/ //_/
- / /___/ /_/ / /_/ /__  __/  / __/ / /  / /_/ / / / / / /  __/ |/ |/ / /_/ / /  / ,<   
-/_____/\\____/ .___/  /_/    /_/   /_/   \\__,_/_/ /_/ /_/\\___/|__/|__/\\____/_/  /_/|_|  
-           /_/                                                                         
+██╗      ██████╗ ██████╗ ██╗  ██╗    ████████╗ ██████╗  ██████╗ ██╗     ██╗  ██╗██╗████████╗
+██║     ██╔═████╗██╔══██╗██║  ██║    ╚══██╔══╝██╔═══██╗██╔═══██╗██║     ██║ ██╔╝██║╚══██╔══╝
+██║     ██║██╔██║██████╔╝███████║       ██║   ██║   ██║██║   ██║██║     █████╔╝ ██║   ██║   
+██║     ████╔╝██║██╔═══╝ ╚════██║       ██║   ██║   ██║██║   ██║██║     ██╔═██╗ ██║   ██║   
+███████╗╚██████╔╝██║          ██║       ██║   ╚██████╔╝╚██████╔╝███████╗██║  ██╗██║   ██║   
+╚══════╝ ╚═════╝ ╚═╝          ╚═╝       ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝   
+                                                                                                                                                                 
 {Style.RESET_ALL}"""
 
 def text_animation(text, ms):
@@ -82,7 +83,7 @@ def ask_next_action(current_tool_func, back_to_menu_func, prev_func):
         current_tool_func()
     elif choice == "2":
         os.system("clear")
-        text_animation(title, 0.001)
+        text_animation(title, 0.0005)
         back_to_menu_func()
     elif choice == "3":
         main()
@@ -173,7 +174,7 @@ def port_scanner():
 
 def information_gathering():
     os.system("clear")
-    text_animation(title, 0.001)
+    text_animation(title, 0.0005)
     print(f"\n{Fore.LIGHTCYAN_EX} --- Information Gathering ---{Style.RESET_ALL}")
     print(f" \n{Fore.CYAN} [{Fore.WHITE}1{Fore.CYAN}] WHOIS Lookup")
     print(f" [{Fore.WHITE}2{Fore.CYAN}] DNS Lookup")
@@ -205,10 +206,38 @@ def information_gathering():
 
 
 
-def web_scanner():
-    text_animation(f"{Fore.RED}Coming Soon...{Style.RESET_ALL}", 0.01)
-    time.sleep(1)
-    main()
+def web_hacking():
+    os.system("clear")
+    text_animation(title, 0.0005)
+
+    text_animation(f"                                \033[1;37mCreated by \033[1;31mL0pa 💻\033[0m\n", 0.0005)
+    text_animation(f"{Fore.CYAN} \t\t\t\tTikTok: {Style.RESET_ALL}{Fore.LIGHTBLUE_EX}@_.l0pa._\n\n{Style.RESET_ALL}", 0.0005)
+
+    print(f"{Fore.LIGHTCYAN_EX} --- Main Menu ---{Style.RESET_ALL}")
+
+    print(f"{Fore.CYAN}\n [{Fore.WHITE}1{Fore.CYAN}] SQLMap\n [{Fore.WHITE}2{Fore.CYAN}] xsstrike\n\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}] Menu{Style.RESET_ALL}\n")
+    s = input(f"{Fore.GREEN}root@{username}/WebHacking:~$ {Style.RESET_ALL}")
+
+
+    if s == "1" or s == "2":
+        url = input(f"{Fore.GREEN}{Style.BRIGHT}> {Fore.CYAN}[+] Enter Target URL: {Style.RESET_ALL}")
+        if (s) == "1": run_sqlmap(url)
+        else: run_xsstrike(url)
+    elif s == "0": main()
+            
+
+
+def run_sqlmap(url):
+    command = f"sqlmap -u {url} --batch --level=5 --risk=3"
+    subprocess.run(command, shell=True)
+    ask_next_action(run_sqlmap, web_hacking, "Web Hacking")
+
+
+def run_xsstrike(url):
+    command = f"python3 tools/XSStrike/xsstrike.py -u {url} --crawl"
+    subprocess.run(command, shell=True)
+    ask_next_action(run_xsstrike, web_hacking, "Web Hacking")
+
 
 
 def exploitation():
@@ -293,9 +322,10 @@ def dos():
     def get_user_input():
         global host, port, threads
 
-        host = input(f"\nEnter target host {Fore.CYAN}> {Style.RESET_ALL}")
-        port = input(f"Enter target port (default 80) {Fore.CYAN}> {Style.RESET_ALL}") or "80"
-        threads = input(f"Enter number of threads (default 135) {Fore.CYAN}> {Style.RESET_ALL}") or "135"
+        host = input(f"{Fore.GREEN}{Style.BRIGHT}> {Fore.CYAN}[+] Enter Target URL: {Style.RESET_ALL}")
+        port = input(f"{Fore.GREEN}{Style.BRIGHT}> {Fore.CYAN}[+] Enter target port (default 80): {Style.RESET_ALL}") or "80"
+        threads = input(f"{Fore.GREEN}{Style.BRIGHT}> {Fore.CYAN}[+] Enter number of threads (default 135): {Style.RESET_ALL}") or "135"
+
 
         print(f"\n\033[92mTarget: {host} | Port: {port} | Threads: {threads}\033[0m")
         text_animation("\033[94mPreparing attack...\033[0m\n", 0.03)
@@ -348,7 +378,7 @@ def dos():
 
 def netcat_listener():
     os.system("clear")
-    text_animation(title, 0.001)
+    text_animation(title, 0.0005)
     port = input(f"\n{Fore.YELLOW}Port: {Style.RESET_ALL}")
     text_animation(f"\n{Fore.YELLOW}CTRL+C for return to menu...{Style.RESET_ALL}\n", 0.02)
     try:
@@ -361,7 +391,7 @@ def netcat_listener():
 
 def network():
     os.system("clear")
-    text_animation(title, 0.001)
+    text_animation(title, 0.0005)
     print(f"\n{Fore.LIGHTCYAN_EX} --- Network ---{Style.RESET_ALL}\n")
     print(f" {Fore.CYAN}[{Fore.WHITE}1{Fore.CYAN}] Network Scanner")
     print(f" [{Fore.WHITE}2{Fore.CYAN}] Port Scanner")
@@ -573,26 +603,33 @@ def CCTV():
 
 
 
+def update_lopa_toolkit():
+    text_animation(f"{Fore.YELLOW}[+] Starting Upgrade...{Style.RESET_ALL}", 0.02)
+    try:
+        subprocess.run(["git", "pull"], check=True)
+    except subprocess.CalledProcessError:
+        text_animation(f"{Fore.RED}[-] Error During The Update!...{Style.RESET_ALL}", 0.02)
+
+
 def main():
     os.system("clear")
     #print(f"{Fore.CYAN}{ascii_text}{Style.RESET_ALL}")
-    text_animation(title, 0.001)
+    text_animation(title, 0.0005)
 
-    text_animation(f"                                \033[1;37mCreated by \033[1;31mL0pa 💻\033[0m\n", 0.001)
+    text_animation(f"                                \033[1;37mCreated by \033[1;31mL0pa 💻\033[0m\n", 0.0005)
     #print("\n                           \033[1;37mCreated by \033[1;31mL0pa 💻\033[0m\n")
-    text_animation(f"{Fore.CYAN} \t\t\t\tTikTok: {Style.RESET_ALL}{Fore.LIGHTBLUE_EX}@_.l0pa._\n\n{Style.RESET_ALL}", 0.001)
+    text_animation(f"{Fore.CYAN} \t\t\t\tTikTok: {Style.RESET_ALL}{Fore.LIGHTBLUE_EX}@_.l0pa._\n\n{Style.RESET_ALL}", 0.0005)
 
     print(f"{Fore.LIGHTCYAN_EX} --- Main Menu ---{Style.RESET_ALL}")
 
-    print(f"{Fore.CYAN}\n [{Fore.WHITE}1{Fore.CYAN}] Information Gathering\n [{Fore.BLACK}2{Fore.CYAN}] Web Hacking\n [{Fore.WHITE}3{Fore.CYAN}] Network\n [{Fore.BLACK}4{Fore.CYAN}] Remote Access\n [{Fore.BLACK}5{Fore.CYAN}] Wireless Tools\n [{Fore.WHITE}6{Fore.CYAN}] DoS Attack\n [{Fore.WHITE}7{Fore.CYAN}] Ip Geolocation\n [{Fore.WHITE}8{Fore.CYAN}] CCTV Cam's\n\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}] Exit{Style.RESET_ALL}\n")
+    print(f"{Fore.CYAN}\n [{Fore.WHITE}1{Fore.CYAN}] Information Gathering\n [{Fore.WHITE}2{Fore.CYAN}] Web Hacking\n [{Fore.WHITE}3{Fore.CYAN}] Network\n [{Fore.BLACK}4{Fore.CYAN}] Remote Access\n [{Fore.BLACK}5{Fore.CYAN}] Wireless Tools\n [{Fore.WHITE}6{Fore.CYAN}] DoS Attack\n [{Fore.WHITE}7{Fore.CYAN}] Ip Geolocation\n [{Fore.WHITE}8{Fore.CYAN}] CCTV Cam's\n\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}]  Exit\n [{Style.RESET_ALL}{Fore.YELLOW}99{Fore.CYAN}] Update L0p4 Toolkit{Style.RESET_ALL}\n")
     s = input(f"{Fore.GREEN}root@{username}:~$ {Style.RESET_ALL}")
 
     match s:
         case "1":
             information_gathering()
         case "2":
-            web_scanner()
-            # coming soon
+            web_hacking()
         case "3":
             network()
         case "4":
@@ -609,6 +646,8 @@ def main():
             CCTV()
         case "0":
             close_program()
+        case "99":
+            update_lopa_toolkit()
         case _:
             print(f"{Fore.RED}Invalid input.{Style.RESET_ALL}")
             main()
