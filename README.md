@@ -12,11 +12,6 @@
 
 ---
 
-# 🚧 Under Development 🚧
-
-The L0p4 Framework is still under active development. Features are constantly being added and improved. Please be patient and use the tool's update option to keep it up to date.
-
----
 ### [+] Features
 
 ### 🌐 **Web Hacking**
@@ -62,3 +57,9 @@ The installation process for L0p4 Framework is simple and straightforward. Follo
    cd L0p4-Framework
    pip install -r requirements.txt --break-system-packages
    python3 main.py
+
+---
+
+<h1 align="center"> Under Development </h1>
+
+The L0p4 Framework is still under active development. Features are constantly being added and improved. Please be patient and use the tool's update option to keep it up to date.
