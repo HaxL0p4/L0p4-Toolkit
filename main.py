@@ -135,7 +135,7 @@ def load_wordlist(file_path):
 
 def subdomain_scanner():
     domain = input(f"{Fore.YELLOW}Target domain (e.g. example.com): {Style.RESET_ALL}")
-    wordlist = load_wordlist("small.txt")
+    wordlist = load_wordlist("big.txt")
 
     if not wordlist:
         print(f"{Fore.RED}Aborting scan: no subdomains loaded.{Style.RESET_ALL}")
