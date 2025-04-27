@@ -377,8 +377,8 @@ def network():
     print(f" [{Fore.WHITE}2{Fore.CYAN}] Port Scanner")
     print(f" [{Fore.WHITE}3{Fore.CYAN}] Web Spy")
     print(f" [{Fore.WHITE}4{Fore.CYAN}] Netcat Listener")
-    print(f" [{Fore.WHITE}5{Fore.CYAN}] Evil Portal")
-    print(f"\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}] Exit{Style.RESET_ALL}")
+    print(f" [{Fore.BLACK}5{Fore.CYAN}] Evil Portal")
+    print(f"\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}] Menu{Style.RESET_ALL}")
 
     choice = input(f"{Fore.GREEN}root@{username}/network:~$ {Style.RESET_ALL}")
 
