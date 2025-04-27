@@ -11,6 +11,11 @@
 </p>
 
 ---
+# 🚧 Under Development 🚧
+
+The L0p4 Framework is still under active development. Features are constantly being added and improved. Please be patient and use the tool's update option to keep it up to date.
+
+---
 ### [+] Features
 
 ### 🌐 **Web Hacking**
