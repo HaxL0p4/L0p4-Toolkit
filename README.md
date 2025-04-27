@@ -7,7 +7,7 @@
 ---
 
 <p align="center">
-  <code>L0p4 Framework</code> is a powerful, multi-functional Python hacking toolkit designed for advanced security professionals. It features cutting-edge tools for: information gathering, web hacking, network exploitation, remote access, DoS attacks, IP geolocation, and CCTV camera hacking.
+  <code>L0p4 Toolkit </code> is a powerful and comprehensive hacking toolset designed for penetration testing and security assessments. It includes advanced tools for web hacking (SQLi, XSS), network scanning, remote access, wireless network analysis, DoS attacks, IP geolocation, CCTV camera access, and OSINT. 
 </p>
 
 ---
