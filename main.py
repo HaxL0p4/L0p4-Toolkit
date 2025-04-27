@@ -614,7 +614,6 @@ def update_lopa_toolkit():
 def main():
     os.system("clear")
     text_animation(title, 0.0005)
-    print("test")
 
     text_animation(f"                                \033[1;37mCreated by \033[1;31mL0pa 💻\033[0m\n", 0.0005)
     text_animation(f"{Fore.CYAN} \t\t\t\tTikTok: {Style.RESET_ALL}{Fore.LIGHTBLUE_EX}@_.l0pa._\n\n{Style.RESET_ALL}", 0.0005)
