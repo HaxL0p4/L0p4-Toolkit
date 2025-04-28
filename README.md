@@ -14,36 +14,36 @@
 
 ### [+] Features
 
-### 🌐 **Web Hacking**
-- SQL Injection Scanner
-- XSS Scanner
-- Wordpress Scanner
-- WHOIS Lookup
-- DNS Lookup
-- Subdomain Scanner
-- Port Scanner
+### 🌐 **Web Hacking Tools**
+- **SQL Injection Scanner**: Automatically detect and exploit SQL injection vulnerabilities.
+- **XSS Scanner**: Scan websites for Cross-Site Scripting vulnerabilities.
+- **WordPress Scanner**: Identify common vulnerabilities in WordPress sites.
+- **WHOIS Lookup**: Retrieve WHOIS information for domain names.
+- **DNS Lookup**: Get DNS records for domain names.
+- **Subdomain Scanner**: Discover subdomains for a given domain.
+- **Port Scanner**: Check for open ports and services on remote hosts.
 
 ### 📡 **Network Tools**
-- Network Scanner
-- Port Scanner
-- Web Spy
-- Netcat Listener
+- **Network Scanner**: Detect devices and services in your local network.
+- **Port Scanner**: Scan for open ports on any network device.
+- **Web Spy**: Monitor network traffic and discover hidden services.
+- **Netcat Listener**: Listen for incoming connections and interact with remote systems.
 
 ### ⚙️ **Remote Access (Coming Soon)**
-- Reverse Shell
-- SSH Brute Force
+- **Reverse Shell**: Gain remote access to a target machine.
+- **SSH Brute Force**: Perform brute-force attacks on SSH servers.
 
 ### 🌐 **OSINT (Coming Soon)**
-- Social Media OSINT
-- Username Lookup
-- Email Lookup
-- Frameworks
+- **Social Media OSINT**: Gather information from social media profiles.
+- **Username Lookup**: Check if a username is available across various platforms.
+- **Email Lookup**: Find associated accounts and information using an email address.
 
 ### ⚡ **Denial of Service (DoS)**
-- DoS Attack
-  
+- **DoS Attack**: Launch a basic Denial of Service attack.
+
 ### 🌍 **IP Geolocation**
-- IP Location Finder
+- **IP Location Finder**: Find the geographical location of an IP address.
+
 
 ---
 ### [+] Installation
