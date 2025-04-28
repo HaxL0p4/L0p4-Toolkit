@@ -627,7 +627,7 @@ def main():
         text_animation(f"                                \033[1;37mCreated by \033[1;31mL0pa 💻\033[0m\n", 0.0005)
         text_animation(f"{Fore.CYAN} \t\t\t\tTikTok: {Style.RESET_ALL}{Fore.LIGHTBLUE_EX}@_.l0pa._\n\n{Style.RESET_ALL}", 0.0005)
 
-        print(f"{Fore.LIGHTCYAN_EX} --- test Main Menu ---\t\t --- Coming Soon ---{Style.RESET_ALL}")
+        print(f"{Fore.LIGHTCYAN_EX} --- Main Menu ---\t\t --- Coming Soon ---{Style.RESET_ALL}")
 
         print(f"{Fore.CYAN}\n [{Fore.WHITE}1{Fore.CYAN}] Web Hacking\t\t[{Fore.WHITE}6{Fore.CYAN}] Remote Access\n [{Fore.WHITE}2{Fore.CYAN}] Network\t\t\t[{Fore.WHITE}7{Fore.CYAN}] Wireless Tools \t\t\n [{Fore.WHITE}3{Fore.CYAN}] DoS Attack\t\t\t[{Fore.WHITE}8{Fore.CYAN}] Osint\n [{Fore.WHITE}4{Fore.CYAN}] Ip Geolocation\n [{Fore.WHITE}5{Fore.CYAN}] CCTV Cam's\n\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}]  Exit\n [{Style.RESET_ALL}{Fore.YELLOW}99{Fore.CYAN}] Update L0p4 Toolkit{Style.RESET_ALL}\n")
         s = input(f"{Fore.GREEN}root@{username}:~$ {Style.RESET_ALL}")
