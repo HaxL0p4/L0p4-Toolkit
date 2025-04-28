@@ -7,7 +7,7 @@
 ---
 
 <p align="center">
-  <code>L0p4 Toolkit</code> is a powerful and comprehensive hacking toolset designed for penetration testing and security assessments. It includes advanced tools for web hacking (SQLi, XSS), network scanning, remote access, wireless network analysis, DoS attacks, IP geolocation, CCTV camera access, and OSINT. 
+  <code>L0p4 Toolkit</code> is a powerful and comprehensive hacking toolset designed for hackers and penetration testing and security assessments. It includes advanced tools for web hacking (SQLi, XSS), network scanning, remote access, wireless network analysis, DoS attacks, IP geolocation, CCTV camera access, OSINT and phishing. 
 </p>
 
 ---
