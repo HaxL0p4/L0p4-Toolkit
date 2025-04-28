@@ -680,6 +680,8 @@ def main():
                 osint()
             case "99":
                 update_lopa_toolkit()
+            case "0":
+                close_program()
             case _:
                 print(f"{Fore.RED}Invalid input.{Style.RESET_ALL}")
                 main()
