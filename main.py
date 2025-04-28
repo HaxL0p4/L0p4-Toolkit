@@ -73,6 +73,9 @@ def text_animation(text, ms):
         time.sleep(ms)
 
 
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 
 def ask_next_action(current_tool_func, back_to_menu_func, prev_func):
     try:
@@ -81,7 +84,7 @@ def ask_next_action(current_tool_func, back_to_menu_func, prev_func):
         if choice == "1":
             current_tool_func()
         elif choice == "2":
-            os.system("clear")
+            clear()
             text_animation(title, 0.0005)
             back_to_menu_func()
         elif choice == "3":
@@ -188,7 +191,7 @@ def port_scanner():
 
 def web_hacking():
     try:
-        os.system("clear")
+        clear()
         text_animation(title, 0.0005)
 
         text_animation(f"                                \033[1;37mCreated by \033[1;31mL0pa 💻\033[0m\n", 0.0005)
@@ -261,7 +264,8 @@ def wireless_tools():
 
 def dos():
     try:
-        os.system("clear")
+        clear()
+
         text_animation(title, 0.002)
 
         def load_user_agents():
@@ -383,7 +387,8 @@ def dos():
 
 def netcat_listener():
     try:
-        os.system("clear")
+        clear()
+
         text_animation(title, 0.0005)
         port = input(f"\n{Fore.YELLOW}Port: {Style.RESET_ALL}")
         text_animation(f"\n{Fore.YELLOW}CTRL+C for return to menu...{Style.RESET_ALL}\n", 0.02)
@@ -399,7 +404,7 @@ def netcat_listener():
 
 def network():
     try:
-        os.system("clear")
+        clear()
         text_animation(title, 0.0005)
         print(f"\n{Fore.LIGHTCYAN_EX} --- Network ---{Style.RESET_ALL}\n")
         print(f" {Fore.CYAN}[{Fore.WHITE}1{Fore.CYAN}] Network Scanner")
@@ -501,7 +506,7 @@ def get_public_ip():
 
 def ip_geo():
     try:
-        os.system("clear")
+        clear()
         text_animation(title, 0.002)
 
         public_ip = get_public_ip()
@@ -551,7 +556,7 @@ def typewriter(text, delay=0.02):
 
 
 def banner():
-    os.system('cls' if os.name == 'nt' else 'clear')
+    clear()
     print("\033[1;32m")
     print(" ▄████▄   ▄████▄  ▄▄▄█████▓ ██▒   █▓")
     print("▒██▀ ▀█  ▒██▀ ▀█  ▓  ██▒ ▓▒▓██░   █▒")
@@ -639,7 +644,7 @@ def update_lopa_toolkit():
 
 def main():
     try:
-        os.system("clear")
+        clear()
         text_animation(title, 0.0005)
 
         text_animation(f"                                \033[1;37mCreated by \033[1;31mL0pa 💻\033[0m\n", 0.0005)
