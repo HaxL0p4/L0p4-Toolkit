@@ -31,12 +31,12 @@ def close_program():
 
 
 title = f"""{Fore.CYAN}
-██╗      ██████╗ ██████╗ ██╗  ██╗    ████████╗ ██████╗  ██████╗ ██╗     ██╗  ██╗██╗████████╗
-██║     ██╔═████╗██╔══██╗██║  ██║    ╚══██╔══╝██╔═══██╗██╔═══██╗██║     ██║ ██╔╝██║╚══██╔══╝
-██║     ██║██╔██║██████╔╝███████║       ██║   ██║   ██║██║   ██║██║     █████╔╝ ██║   ██║   
-██║     ████╔╝██║██╔═══╝ ╚════██║       ██║   ██║   ██║██║   ██║██║     ██╔═██╗ ██║   ██║   
-███████╗╚██████╔╝██║          ██║       ██║   ╚██████╔╝╚██████╔╝███████╗██║  ██╗██║   ██║   
-╚══════╝ ╚═════╝ ╚═╝          ╚═╝       ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝   
+ ██╗      ██████╗ ██████╗ ██╗  ██╗    ████████╗ ██████╗  ██████╗ ██╗     ██╗  ██╗██╗████████╗
+ ██║     ██╔═████╗██╔══██╗██║  ██║    ╚══██╔══╝██╔═══██╗██╔═══██╗██║     ██║ ██╔╝██║╚══██╔══╝
+ ██║     ██║██╔██║██████╔╝███████║       ██║   ██║   ██║██║   ██║██║     █████╔╝ ██║   ██║   
+ ██║     ████╔╝██║██╔═══╝ ╚════██║       ██║   ██║   ██║██║   ██║██║     ██╔═██╗ ██║   ██║   
+ ███████╗╚██████╔╝██║          ██║       ██║   ╚██████╔╝╚██████╔╝███████╗██║  ██╗██║   ██║   
+ ╚══════╝ ╚═════╝ ╚═╝          ╚═╝       ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝   
                                                                                                                                                                  
 {Style.RESET_ALL}"""
 
@@ -53,7 +53,7 @@ def clear():
 def ask_next_action(current_tool_func, back_to_menu_func, prev_func):
     try:
         print(f"\n{Fore.YELLOW} [1] Repeat\n [2] {prev_func}\n [3] Main Menu{Style.RESET_ALL}")
-        choice = input(f"{Fore.GREEN}root@{username}:~$ {Style.RESET_ALL}")
+        choice = input(f"{Fore.GREEN} root@{username}:~$ {Style.RESET_ALL}")
         if choice == "1":
             current_tool_func()
         elif choice == "2":
@@ -160,6 +160,8 @@ def port_scanner():
         close_program()
 
 
+def run_WPScan():
+    pass
 
 
 def web_hacking():
@@ -170,25 +172,27 @@ def web_hacking():
         text_animation(f"                                \033[1;37mCreated by \033[1;31mL0pa 💻\033[0m\n", 0.0005)
         text_animation(f"{Fore.CYAN} \t\t\t\tTikTok: {Style.RESET_ALL}{Fore.LIGHTBLUE_EX}@_.l0pa._\n\n{Style.RESET_ALL}", 0.0005)
 
-        print(f"{Fore.LIGHTCYAN_EX} --- Main Menu ---{Style.RESET_ALL}")
+        print(f"{Fore.LIGHTCYAN_EX} --- Web Hacking ---{Style.RESET_ALL}")
 
-        print(f"{Fore.CYAN}\n [{Fore.WHITE}1{Fore.CYAN}] SQLMap\n [{Fore.WHITE}2{Fore.CYAN}] xsstrike\n [{Fore.WHITE}3{Fore.CYAN}] WHOIS Lookup\n [{Fore.WHITE}4{Fore.CYAN}] DNS Lookup\n [{Fore.WHITE}5{Fore.CYAN}] Subdomain Scanner\n [{Fore.WHITE}6{Fore.CYAN}] Port Scanner\n\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}] Menu{Style.RESET_ALL}\n")
-        s = input(f"{Fore.GREEN}root@{username}/WebHacking:~$ {Style.RESET_ALL}")
+
+        print(f"{Fore.CYAN}\n [{Fore.WHITE}1{Fore.CYAN}] SQLMap\n [{Fore.WHITE}2{Fore.CYAN}] xsstrike\n [{Fore.WHITE}3{Fore.CYAN}] WPScan\n [{Fore.WHITE}4{Fore.CYAN}] WHOIS Lookup\n [{Fore.WHITE}5{Fore.CYAN}] DNS Lookup\n [{Fore.WHITE}6{Fore.CYAN}] Subdomain Scanner\n [{Fore.WHITE}7{Fore.CYAN}] Port Scanner\n\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}] Menu{Style.RESET_ALL}\n")
+        s = input(f"{Fore.GREEN} root@{username}/WebHacking:~$ {Style.RESET_ALL}")
 
 
         if s == "1" or s == "2":
             url = input(f"{Fore.GREEN}{Style.BRIGHT}> {Fore.CYAN}[+] Enter Target URL: {Style.RESET_ALL}")
             if (s) == "1": run_sqlmap(url)
-            else: run_xsstrike(url)
+            elif s == "2": run_xsstrike(url)
+            elif s == "3": run_WPScan()
         
         match (s):
-            case "3":
-                whois_lookup()
             case "4":
-                dns_lookup()
+                whois_lookup()
             case "5":
-                subdomain_scanner()
+                dns_lookup()
             case "6":
+                subdomain_scanner()
+            case "7":
                 port_scanner()
             case "0":
                 main()
@@ -231,9 +235,38 @@ def wireless_tools():
 
 
 def osint():
-    text_animation(f"{Fore.RED}Coming Soon...{Style.RESET_ALL}", 0.01)
-    time.sleep(1)
-    main()
+    try:
+        clear()
+        text_animation(title, 0.0005)
+
+        text_animation(f"                                \033[1;37mCreated by \033[1;31mL0pa 💻\033[0m\n", 0.0005)
+        text_animation(f"{Fore.CYAN} \t\t\t\tTikTok: {Style.RESET_ALL}{Fore.LIGHTBLUE_EX}@_.l0pa._\n\n{Style.RESET_ALL}", 0.0005)
+
+        print(f"{Fore.LIGHTCYAN_EX} --- OSINT ---{Style.RESET_ALL}\n")
+
+        print(f"{Fore.GREEN}+{'-'*37}+{'-'*37}+{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}|{Style.RESET_ALL}          {Fore.YELLOW}--- Usernames ---{Style.RESET_ALL}          {Fore.GREEN}|{Style.RESET_ALL}          {Fore.YELLOW}--- Instagram ---{Style.RESET_ALL}          {Fore.GREEN}|{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}1{Style.RESET_ALL}] Sherlock                       {Fore.GREEN} |{Style.RESET_ALL} [{Fore.WHITE}1{Style.RESET_ALL}] Toutatis                       {Fore.GREEN} |{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}2{Style.RESET_ALL}] Maigret                        {Fore.GREEN} |{Style.RESET_ALL} [{Fore.WHITE}2{Style.RESET_ALL}] Osintgram                      {Fore.GREEN} |{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}3{Style.RESET_ALL}] Blackbird                      {Fore.GREEN} |{Style.RESET_ALL} [{Fore.WHITE}3{Style.RESET_ALL}] Instaloader                    {Fore.GREEN} |{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}4{Style.RESET_ALL}] What's my name                  {Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}4{Style.RESET_ALL}] IgScraper                     {Fore.GREEN}  |{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}5{Style.RESET_ALL}] SocialScan                     {Fore.GREEN} |{Style.RESET_ALL} [{Fore.WHITE}5{Style.RESET_ALL}] InstaLooter                    {Fore.GREEN} |{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}+{'-'*37}+{'-'*37}+{Style.RESET_ALL}")
+
+        print(f"{Fore.GREEN}+{'-'*37}+{'-'*37}+{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}|{Style.RESET_ALL}          {Fore.YELLOW}--- Email ---{Style.RESET_ALL}            {Fore.GREEN}  | {Style.RESET_ALL}          {Fore.YELLOW}--- Frameworks ---{Style.RESET_ALL}        {Fore.GREEN}|{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}1{Style.RESET_ALL}] Holehe                         {Fore.GREEN} |{Style.RESET_ALL} [{Fore.WHITE}1{Style.RESET_ALL}] Recon-ng                  {Fore.GREEN}      |{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}2{Style.RESET_ALL}] Eyes                           {Fore.GREEN} |{Style.RESET_ALL} [{Fore.WHITE}2{Style.RESET_ALL}] Mr.Holmes                       {Fore.GREEN}|{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}3{Style.RESET_ALL}] GHunt                          {Fore.GREEN} |{Style.RESET_ALL} [{Fore.WHITE}3{Style.RESET_ALL}] Spiderfoot                      {Fore.GREEN}|{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}+{'-'*37}+{'-'*37}+{Style.RESET_ALL}\n")
+
+        print(f" [{Style.RESET_ALL}{Fore.RED}0{Style.RESET_ALL}] {Fore.CYAN}Menu{Style.RESET_ALL}\n")
+
+        s = input(f"{Fore.GREEN} root@{username}/OSINT:~$ {Style.RESET_ALL}")
+
+    except KeyboardInterrupt:
+        close_program()
+
 
 
 ################################# DOS ATTACK ##############################################
@@ -390,7 +423,7 @@ def network():
         print(f" [{Fore.BLACK}5{Fore.CYAN}] Evil Portal")
         print(f"\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}] Menu{Style.RESET_ALL}")
 
-        choice = input(f"{Fore.GREEN}root@{username}/network:~$ {Style.RESET_ALL}")
+        choice = input(f"{Fore.GREEN} root@{username}/network:~$ {Style.RESET_ALL}")
 
         match (choice):
             case "1":
@@ -629,8 +662,8 @@ def main():
 
         print(f"{Fore.LIGHTCYAN_EX} --- Main Menu ---\t\t --- Coming Soon ---{Style.RESET_ALL}")
 
-        print(f"{Fore.CYAN}\n [{Fore.WHITE}1{Fore.CYAN}] Web Hacking\t\t[{Fore.WHITE}6{Fore.CYAN}] Remote Access\n [{Fore.WHITE}2{Fore.CYAN}] Network\t\t\t[{Fore.WHITE}7{Fore.CYAN}] Wireless Tools \t\t\n [{Fore.WHITE}3{Fore.CYAN}] DoS Attack\t\t\t[{Fore.WHITE}8{Fore.CYAN}] Osint\n [{Fore.WHITE}4{Fore.CYAN}] Ip Geolocation\n [{Fore.WHITE}5{Fore.CYAN}] CCTV Cam's\n\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}]  Exit\n [{Style.RESET_ALL}{Fore.YELLOW}99{Fore.CYAN}] Update L0p4 Toolkit{Style.RESET_ALL}\n")
-        s = input(f"{Fore.GREEN}root@{username}:~$ {Style.RESET_ALL}")
+        print(f"{Fore.CYAN}\n [{Fore.WHITE}1{Fore.CYAN}] Web Hacking\t\t[{Fore.WHITE}6{Fore.CYAN}] Phishing\n [{Fore.WHITE}2{Fore.CYAN}] Network\t\t\t[{Fore.WHITE}7{Fore.CYAN}] Wireless Tools \t\t\n [{Fore.WHITE}3{Fore.CYAN}] DoS Attack\t\t\t[{Fore.WHITE}8{Fore.CYAN}] Osint\n [{Fore.WHITE}4{Fore.CYAN}] Ip Geolocation\n [{Fore.WHITE}5{Fore.CYAN}] CCTV Cam's\n\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}]  Exit\n [{Style.RESET_ALL}{Fore.YELLOW}99{Fore.CYAN}] Update L0p4 Toolkit{Style.RESET_ALL}\n")
+        s = input(f"{Fore.GREEN} root@{username}:~$ {Style.RESET_ALL}")
 
         match s:
             case "1":
