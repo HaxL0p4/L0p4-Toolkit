@@ -17,6 +17,7 @@
 ### 🌐 **Web Hacking**
 - SQL Injection Scanner
 - XSS Scanner
+- Wordpress Scanner
 - WHOIS Lookup
 - DNS Lookup
 - Subdomain Scanner
@@ -34,7 +35,9 @@
 
 ### 🌐 **OSINT (Coming Soon)**
 - Social Media OSINT
+- Username Lookup
 - Email Lookup
+- Frameworks
 
 ### ⚡ **Denial of Service (DoS)**
 - DoS Attack
