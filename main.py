@@ -1,4 +1,4 @@
-# CODED BY LOPA :)
+# CODED BY L0PA :)
 
 import getpass
 import ipaddress
@@ -246,9 +246,6 @@ def run_xsstrike(url):
         close_program()
 
 
-def exploitation():
-    pass
-
 
 def remote_access():
     text_animation(f"{Fore.RED}Coming Soon...{Style.RESET_ALL}", 0.01)
@@ -262,13 +259,19 @@ def wireless_tools():
     main()
 
 
+def osint():
+    text_animation(f"{Fore.RED}Coming Soon...{Style.RESET_ALL}", 0.01)
+    time.sleep(1)
+    main()
+
+
 ################################# DOS ATTACK ##############################################
 
 def dos():
     try:
         clear()
 
-        text_animation(title, 0.002)
+        text_animation(title, 0.0005)
 
         def load_user_agents():
             global uagent
@@ -509,7 +512,7 @@ def get_public_ip():
 def ip_geo():
     try:
         clear()
-        text_animation(title, 0.002)
+        text_animation(title, 0.0005)
 
         public_ip = get_public_ip()
         print(f"\n Your ip address: {Fore.RED}{public_ip}{Style.RESET_ALL}")
@@ -632,7 +635,7 @@ def CCTV():
             time.sleep(1)
             exit()
     except KeyboardInterrupt:
-        close_program()
+        main()
 
 
 
@@ -653,9 +656,9 @@ def main():
         text_animation(f"                                \033[1;37mCreated by \033[1;31mL0pa 💻\033[0m\n", 0.0005)
         text_animation(f"{Fore.CYAN} \t\t\t\tTikTok: {Style.RESET_ALL}{Fore.LIGHTBLUE_EX}@_.l0pa._\n\n{Style.RESET_ALL}", 0.0005)
 
-        print(f"{Fore.LIGHTCYAN_EX} --- Main Menu ---{Style.RESET_ALL}")
+        print(f"{Fore.LIGHTCYAN_EX} --- Main Menu ---\t\t --- Coming Soon ---{Style.RESET_ALL}")
 
-        print(f"{Fore.CYAN}\n [{Fore.WHITE}1{Fore.CYAN}] Web Hacking\n [{Fore.WHITE}2{Fore.CYAN}] Network\n [{Fore.BLACK}3{Fore.CYAN}] Remote Access\n [{Fore.BLACK}4{Fore.CYAN}] Wireless Tools\n [{Fore.WHITE}5{Fore.CYAN}] DoS Attack\n [{Fore.WHITE}6{Fore.CYAN}] Ip Geolocation\n [{Fore.WHITE}7{Fore.CYAN}] CCTV Cam's\n [{Fore.BLACK}8{Fore.CYAN}] OSINT\n\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}]  Exit\n [{Style.RESET_ALL}{Fore.YELLOW}99{Fore.CYAN}] Update L0p4 Toolkit{Style.RESET_ALL}\n")
+        print(f"{Fore.CYAN}\n [{Fore.WHITE}1{Fore.CYAN}] Web Hacking\t\t[{Fore.WHITE}6{Fore.CYAN}]Remote Access\n [{Fore.WHITE}2{Fore.CYAN}] Network\t\t\t[{Fore.WHITE}7{Fore.CYAN}] Wireless Tools \t\t\n [{Fore.WHITE}3{Fore.CYAN}] DoS Attack\t\t\t[{Fore.WHITE}8{Fore.CYAN}] Osint\n [{Fore.WHITE}4{Fore.CYAN}] Ip Geolocation\n [{Fore.WHITE}5{Fore.CYAN}] CCTV Cam's\n\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}]  Exit\n [{Style.RESET_ALL}{Fore.YELLOW}99{Fore.CYAN}] Update L0p4 Toolkit{Style.RESET_ALL}\n")
         s = input(f"{Fore.GREEN}root@{username}:~$ {Style.RESET_ALL}")
 
         match s:
@@ -664,19 +667,17 @@ def main():
             case "2":
                 network()
             case "3":
-                remote_access()
-                # coming soon
-            case "4":
-                wireless_tools()
-                # coming soon
-            case "5":
                 dos()
-            case "6":
+            case "4":
                 ip_geo()
-            case "7":
+            case "5":
                 CCTV()
+            case "6":
+                remote_access()
+            case "7":
+                wireless_tools()
             case "8":
-                close_program()
+                osint()
             case "99":
                 update_lopa_toolkit()
             case _:
