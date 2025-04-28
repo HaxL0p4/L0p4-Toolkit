@@ -9,6 +9,7 @@ import random
 import re
 import socket
 import subprocess
+import shutil
 import sys
 import threading
 import time
@@ -29,6 +30,11 @@ colorama.init()
 def close_program():
     text_animation(f"\n{Fore.RED}[💀] Closing The Program...{Style.RESET_ALL}\n", 0.02)
 
+
+
+def command_exist(cmd):
+    return shutil.which(cmd) is not None
+    
 
 title = f"""{Fore.CYAN}
  ██╗      ██████╗ ██████╗ ██╗  ██╗    ████████╗ ██████╗  ██████╗ ██╗     ██╗  ██╗██╗████████╗
@@ -160,8 +166,61 @@ def port_scanner():
         close_program()
 
 
-def run_WPScan():
-    pass
+
+def run_wpscan():
+    try:
+        clear()
+        text_animation(title, 0.0005)
+
+        text_animation(f"                                \033[1;37mCreated by \033[1;31mL0pa 💻\033[0m\n", 0.0005)
+        text_animation(f"{Fore.CYAN} \t\t\t\tTikTok: {Style.RESET_ALL}{Fore.LIGHTBLUE_EX}@_.l0pa._\n\n{Style.RESET_ALL}", 0.0005)
+        print(f"{Fore.LIGHTCYAN_EX} --- WPScan Tool ---{Style.RESET_ALL}\n")
+        print(f"{Fore.CYAN}[{Fore.WHITE}1{Fore.CYAN}] Enumerate Usernames")
+        print(f"{Fore.CYAN}[{Fore.WHITE}2{Fore.CYAN}] Enumerate Plugins")
+        print(f"{Fore.CYAN}[{Fore.WHITE}3{Fore.CYAN}] Enumerate Themes")
+        print(f"{Fore.CYAN}[{Fore.WHITE}4{Fore.CYAN}] Full Vulnerability Scan")
+        print(f"\n{Fore.RED}[0] Return to Web Hacking\n{Style.RESET_ALL}")
+
+        choice = input(f"{Fore.GREEN}root@{username}/wpscan:~$ {Style.RESET_ALL}")
+
+        if choice == "0":
+            web_hacking()
+
+        target = input(f"{Fore.YELLOW}Enter the WordPress site URL (e.g., https://target.com): {Style.RESET_ALL}")
+
+        if choice == "1":
+            os.system(f"wpscan --url {target} --enumerate u --random-user-agent")
+        elif choice == "2":
+            os.system(f"wpscan --url {target} --enumerate p --random-user-agent")
+        elif choice == "3":
+            os.system(f"wpscan --url {target} --enumerate t --random-user-agent")
+        elif choice == "4":
+            print(f"{Fore.YELLOW}[*] Launching full scan...{Style.RESET_ALL}")
+            os.system(f'wpscan --url {target} --enumerate "u,vp,vt" --random-user-agent')
+        else:
+            print(f"{Fore.RED}[!] Invalid selection.{Style.RESET_ALL}")
+
+        ask_next_action(run_wpscan, web_hacking, "Web Hacking")
+        print("\n")
+
+    except KeyboardInterrupt:
+        close_program()
+        return
+
+
+
+
+def check_wpscan():
+    try:
+        if command_exist("wpscan"):
+            run_wpscan()
+        else:
+            text_animation(f"\n{Fore.CYAN}[+] Installing WPScan...{Style.RESET_ALL}\n", 0.02)
+            os.system("sudo apt install ruby-full build-essential libcurl4-openssl-dev libssl-dev zlib1g-dev -y && sudo gem install wpscan")
+            text_animation(f"\n{Fore.CYAN}[+] WPScan Installed! {Style.RESET_ALL}\n", 0.02)
+    except KeyboardInterrupt:
+        close_program()
+
 
 
 def web_hacking():
@@ -179,25 +238,27 @@ def web_hacking():
         s = input(f"{Fore.GREEN} root@{username}/WebHacking:~$ {Style.RESET_ALL}")
 
 
-        if s == "1" or s == "2":
+        if s == "1":
             url = input(f"{Fore.GREEN}{Style.BRIGHT}> {Fore.CYAN}[+] Enter Target URL: {Style.RESET_ALL}")
-            if (s) == "1": run_sqlmap(url)
-            elif s == "2": run_xsstrike(url)
-            elif s == "3": run_WPScan()
-        
-        match (s):
-            case "4":
-                whois_lookup()
-            case "5":
-                dns_lookup()
-            case "6":
-                subdomain_scanner()
-            case "7":
-                port_scanner()
-            case "0":
-                main()
-            case _:
-                web_hacking()
+            run_sqlmap(url)
+        elif s == "2":
+            url = input(f"{Fore.GREEN}{Style.BRIGHT}> {Fore.CYAN}[+] Enter Target URL: {Style.RESET_ALL}")
+            run_xsstrike(url)
+        elif s == "3":
+            check_wpscan()
+        elif s == "4":
+            whois_lookup()
+        elif s == "5":
+            dns_lookup()
+        elif s == "6":
+            subdomain_scanner()
+        elif s == "7":
+            port_scanner()
+        elif s == "0":
+            main()
+        else:
+            web_hacking()
+
     except KeyboardInterrupt:
         close_program()
             
@@ -263,6 +324,13 @@ def osint():
         print(f" [{Style.RESET_ALL}{Fore.RED}0{Style.RESET_ALL}] {Fore.CYAN}Menu{Style.RESET_ALL}\n")
 
         s = input(f"{Fore.GREEN} root@{username}/OSINT:~$ {Style.RESET_ALL}")
+
+        if s == "0":
+            main()
+
+        text_animation(f"\n{Fore.RED}[!] This section is still in developing :') {Style.RESET_ALL}", 0.02)
+        time.sleep(1)
+        main()
 
     except KeyboardInterrupt:
         close_program()
