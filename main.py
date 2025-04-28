@@ -28,7 +28,7 @@ username = getpass.getuser()
 colorama.init()
 
 def close_program():
-    text_animation(f"\n{Fore.RED}[💀] Closing The Program...{Style.RESET_ALL}\n", 0.02)
+    text_animation(f"\n{Fore.RED} [💀] Closing The Program...{Style.RESET_ALL}\n", 0.02)
 
 
 
@@ -326,7 +326,7 @@ def osint():
         s = input(f"{Fore.GREEN} root@{username}/OSINT:~$ {Style.RESET_ALL}")
 
         if s == "0":
-            main()
+            return main()
 
         text_animation(f"\n{Fore.RED}[!] This section is still in developing :') {Style.RESET_ALL}", 0.02)
         time.sleep(1)
@@ -730,7 +730,7 @@ def main():
 
         print(f"{Fore.LIGHTCYAN_EX} --- Main Menu ---\t\t --- Coming Soon ---{Style.RESET_ALL}")
 
-        print(f"{Fore.CYAN}\n [{Fore.WHITE}1{Fore.CYAN}] Web Hacking\t\t[{Fore.WHITE}7{Fore.CYAN}] Phishing\n [{Fore.WHITE}2{Fore.CYAN}] Network\t\t\t[{Fore.WHITE}8{Fore.CYAN}] Wireless Tools \t\t\n [{Fore.WHITE}3{Fore.CYAN}] DoS Attack\n [{Fore.WHITE}4{Fore.CYAN}] Ip Geolocation\n [{Fore.WHITE}5{Fore.CYAN}] CCTV Cam's\n [{Fore.WHITE}6{Fore.CYAN}] OSINT\n\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}]  Exit\n [{Style.RESET_ALL}{Fore.YELLOW}99{Fore.CYAN}] Update L0p4 Toolkit{Style.RESET_ALL}\n")
+        print(f"{Fore.CYAN}\n [{Fore.WHITE}1{Fore.CYAN}] Web Hacking\t\t [{Fore.WHITE}7{Fore.CYAN}] Phishing\n [{Fore.WHITE}2{Fore.CYAN}] Network\t\t\t [{Fore.WHITE}8{Fore.CYAN}] Wireless Tools \t\t\n [{Fore.WHITE}3{Fore.CYAN}] DoS Attack\n [{Fore.WHITE}4{Fore.CYAN}] Ip Geolocation\n [{Fore.WHITE}5{Fore.CYAN}] CCTV Cam's\n [{Fore.WHITE}6{Fore.CYAN}] OSINT\n\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}]  Exit\n [{Style.RESET_ALL}{Fore.YELLOW}99{Fore.CYAN}] Update L0p4 Toolkit{Style.RESET_ALL}\n")
         s = input(f"{Fore.GREEN} root@{username}:~$ {Style.RESET_ALL}")
 
         match s:
@@ -749,7 +749,6 @@ def main():
             case "7":
                 remote_access()
             case "8":
-                #osint()
                 wireless_tools()
             case "99":
                 update_lopa_toolkit()
