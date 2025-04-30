@@ -24,6 +24,7 @@ from colorama import Fore, Style
 from requests.structures import CaseInsensitiveDict
 from scapy.all import sniff, ARP, send, DNSQR, IP
 
+
 username = getpass.getuser()
 colorama.init()
 
@@ -208,7 +209,19 @@ def run_wpscan():
         return
 
 
-
+def check_distro():
+    try:
+        with open("etc/os-relase") as f:
+            distro = f.read().lower()
+            if "debian" in distro or "ubuntu" in distro:
+                return "debian_based"
+            elif "arch" in distro or "manjaro" in distro:
+                return "arch_based"
+            else:
+                return "other_os"
+    except FileNotFoundError:
+        # Error opening the file
+        pass
 
 def check_wpscan():
     try:
@@ -216,8 +229,15 @@ def check_wpscan():
             run_wpscan()
         else:
             text_animation(f"\n{Fore.CYAN}[+] Installing WPScan...{Style.RESET_ALL}\n", 0.02)
-            os.system("sudo apt install ruby-full build-essential libcurl4-openssl-dev libssl-dev zlib1g-dev -y && sudo gem install wpscan")
-            text_animation(f"\n{Fore.CYAN}[+] WPScan Installed! {Style.RESET_ALL}\n", 0.02)
+            if check_distro() == "debian_based":
+                os.system("sudo apt install ruby-full build-essential libcurl4-openssl-dev libssl-dev zlib1g-dev -y && sudo gem install wpscan")
+            elif check_distro() == "arch_based":
+                os.system("sudo pacman -Syu ruby base-devel curl opensshl zlib --noconfirm && sudo gem install wpscan")
+            elif check_distro() == "other_os":
+                text_animation(f"\n{Fore.CYAN}[+] Error, WPScan not installed... {Style.RESET_ALL}\n", 0.02)
+                web_hacking()
+            else:
+                text_animation(f"\n{Fore.CYAN}[+] WPScan Installed! {Style.RESET_ALL}\n", 0.02)
     except KeyboardInterrupt:
         close_program()
 
