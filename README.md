@@ -26,7 +26,7 @@
 ### 📡 **Network Tools**
 - **Network Scanner**: Detect devices and services in your local network.
 - **Port Scanner**: Scan for open ports on any network device.
-- **Web Spy**: Monitor network traffic and discover hidden services.
+- **Web Spy**: Spy on websites visited by a victim on their local network
 - **Netcat Listener**: Listen for incoming connections and interact with remote systems.
 
 ### ⚙️ **Remote Access (Coming Soon)**
@@ -37,9 +37,10 @@
 - **Social Media OSINT**: Gather information from social media profiles.
 - **Username Lookup**: Check if a username is available across various platforms.
 - **Email Lookup**: Find associated accounts and information using an email address.
+- **Frameworks**: Like Spiderfoot, Recon-Ng and Mr.Holmes
 
 ### ⚡ **Denial of Service (DoS)**
-- **DoS Attack**: Launch a basic Denial of Service attack.
+- **DoS Attack**: Launch a Denial of Service attack.
 
 ### 🌍 **IP Geolocation**
 - **IP Location Finder**: Find the geographical location of an IP address.
