@@ -1,7 +1,6 @@
 <h1 align="center"> L0p4 Toolkit </h1>
 
 <p align="center">
-  <img src="https://img.shields.io/github/v/release/HaxL0p4/L0p4-Toolkit?style=for-the-badge&color=green">
   <img src="https://img.shields.io/github/stars/HaxL0p4/L0p4-Toolkit?style=for-the-badge&color=orange">
   <img src="https://img.shields.io/github/forks/HaxL0p4/L0p4-Toolkit?style=for-the-badge&color=purple">
   <img src="https://img.shields.io/github/watchers/HaxL0p4/L0p4-Toolkit?style=for-the-badge&color=blue">
@@ -10,7 +9,7 @@
   <br><br>
   <img src="https://img.shields.io/badge/Author-HaxL0p4-purple?style=flat-square">
   <img src="https://img.shields.io/badge/Open%20Source-Yes-cyan?style=flat-square">
-  <img src="https://img.shields.io/badge/Written%20In-Bash-blue?style=flat-square">
+  <img src="https://img.shields.io/badge/Written%20In-Python-blue?style=flat-square">
 </p>
 
 <p align="center"><b>Multi-Tool offensive kit for Hackers</b></p>
