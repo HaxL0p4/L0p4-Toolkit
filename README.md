@@ -44,6 +44,10 @@
 ### 🌍 **IP Geolocation**
 - **IP Location Finder**: Find the geographical location of an IP address.
 
+### 🥷 **Phishing**
+ - **Webcam Phishing**: Using L0p4-WebcamPhisher tool
+ - **Credentials Phishing**: Using PyPhisher Tool
+
 
 ---
 ### [+] Installation
