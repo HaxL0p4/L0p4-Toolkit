@@ -356,18 +356,18 @@ def osint():
 
         print(f"{Fore.GREEN}+{'-'*37}+{'-'*37}+{Style.RESET_ALL}")
         print(f"{Fore.GREEN}|{Style.RESET_ALL}          {Fore.YELLOW}--- Usernames ---{Style.RESET_ALL}          {Fore.GREEN}|{Style.RESET_ALL}          {Fore.YELLOW}--- Instagram ---{Style.RESET_ALL}          {Fore.GREEN}|{Style.RESET_ALL}")
-        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}1{Style.RESET_ALL}] Sherlock                       {Fore.GREEN} |{Style.RESET_ALL} [{Fore.WHITE}1{Style.RESET_ALL}] Toutatis                       {Fore.GREEN} |{Style.RESET_ALL}")
-        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}2{Style.RESET_ALL}] Maigret                        {Fore.GREEN} |{Style.RESET_ALL} [{Fore.WHITE}2{Style.RESET_ALL}] Osintgram                      {Fore.GREEN} |{Style.RESET_ALL}")
-        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}3{Style.RESET_ALL}] Blackbird                      {Fore.GREEN} |{Style.RESET_ALL} [{Fore.WHITE}3{Style.RESET_ALL}] Instaloader                    {Fore.GREEN} |{Style.RESET_ALL}")
-        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}4{Style.RESET_ALL}] What's my name                  {Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}4{Style.RESET_ALL}] IgScraper                     {Fore.GREEN}  |{Style.RESET_ALL}")
-        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}5{Style.RESET_ALL}] SocialScan                     {Fore.GREEN} |{Style.RESET_ALL} [{Fore.WHITE}5{Style.RESET_ALL}] InstaLooter                    {Fore.GREEN} |{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}1{Style.RESET_ALL}] Sherlock                       {Fore.GREEN} |{Style.RESET_ALL} [{Fore.WHITE}6{Style.RESET_ALL}] Toutatis                       {Fore.GREEN} |{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}2{Style.RESET_ALL}] Maigret                        {Fore.GREEN} |{Style.RESET_ALL} [{Fore.WHITE}7{Style.RESET_ALL}] Osintgram                      {Fore.GREEN} |{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}3{Style.RESET_ALL}] Blackbird                      {Fore.GREEN} |{Style.RESET_ALL} [{Fore.WHITE}8{Style.RESET_ALL}] Instaloader                    {Fore.GREEN} |{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}4{Style.RESET_ALL}] What's my name                  {Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}9{Style.RESET_ALL}] IgScraper                     {Fore.GREEN}  |{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}5{Style.RESET_ALL}] SocialScan                     {Fore.GREEN} |{Style.RESET_ALL} [{Fore.WHITE}10{Style.RESET_ALL}] InstaLooter                    {Fore.GREEN}|{Style.RESET_ALL}")
         print(f"{Fore.GREEN}+{'-'*37}+{'-'*37}+{Style.RESET_ALL}")
 
         print(f"{Fore.GREEN}+{'-'*37}+{'-'*37}+{Style.RESET_ALL}")
         print(f"{Fore.GREEN}|{Style.RESET_ALL}          {Fore.YELLOW}--- Email ---{Style.RESET_ALL}            {Fore.GREEN}  | {Style.RESET_ALL}          {Fore.YELLOW}--- Frameworks ---{Style.RESET_ALL}        {Fore.GREEN}|{Style.RESET_ALL}")
-        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}1{Style.RESET_ALL}] Holehe                         {Fore.GREEN} |{Style.RESET_ALL} [{Fore.WHITE}1{Style.RESET_ALL}] Recon-ng                  {Fore.GREEN}      |{Style.RESET_ALL}")
-        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}2{Style.RESET_ALL}] Eyes                           {Fore.GREEN} |{Style.RESET_ALL} [{Fore.WHITE}2{Style.RESET_ALL}] Mr.Holmes                       {Fore.GREEN}|{Style.RESET_ALL}")
-        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}3{Style.RESET_ALL}] GHunt                          {Fore.GREEN} |{Style.RESET_ALL} [{Fore.WHITE}3{Style.RESET_ALL}] Spiderfoot                      {Fore.GREEN}|{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}11{Style.RESET_ALL}] Holehe                         {Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}14{Style.RESET_ALL}] Recon-ng                  {Fore.GREEN}     |{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}12{Style.RESET_ALL}] Eyes                           {Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}15{Style.RESET_ALL}] Mr.Holmes                      {Fore.GREEN}|{Style.RESET_ALL}")
+        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}13{Style.RESET_ALL}] GHunt                          {Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}16{Style.RESET_ALL}] Spiderfoot                     {Fore.GREEN}|{Style.RESET_ALL}")
         print(f"{Fore.GREEN}+{'-'*37}+{'-'*37}+{Style.RESET_ALL}\n")
 
         print(f" [{Style.RESET_ALL}{Fore.RED}0{Style.RESET_ALL}] {Fore.CYAN}Menu{Style.RESET_ALL}\n")
@@ -777,11 +777,27 @@ def main():
         text_animation(title, 0.0005)
 
         text_animation(f"                                \033[1;37mCreated by \033[1;31mL0pa 💻\033[0m\n", 0.0005)
-        text_animation(f"{Fore.CYAN} \t\t\t\tTikTok: {Style.RESET_ALL}{Fore.LIGHTBLUE_EX}@_.l0pa._\n\n{Style.RESET_ALL}", 0.0005)
+        text_animation(f"{Fore.CYAN} \t\t\t\tTikTok: {Style.RESET_ALL}{Fore.LIGHTBLUE_EX}@_.l0pa._\n{Style.RESET_ALL}", 0.0005)
 
-        print(f"{Fore.LIGHTCYAN_EX} --- Main Menu --- {Style.RESET_ALL}")
+        #print(f"{Fore.LIGHTCYAN_EX} --- Main Menu --- {Style.RESET_ALL}")
 
-        print(f"{Fore.CYAN}\n [{Fore.WHITE}1{Fore.CYAN}] Web Hacking\n [{Fore.WHITE}2{Fore.CYAN}] Network\n [{Fore.WHITE}3{Fore.CYAN}] DoS Attack\n [{Fore.WHITE}4{Fore.CYAN}] Ip Geolocation\n [{Fore.WHITE}5{Fore.CYAN}] CCTV Cam's\n [{Fore.WHITE}6{Fore.CYAN}] OSINT\n [{Fore.WHITE}7{Fore.CYAN}] Phishing\n\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}]  Exit\n [{Style.RESET_ALL}{Fore.YELLOW}99{Fore.CYAN}] Update L0p4 Toolkit{Style.RESET_ALL}\n")
+        menu = f"""
+                {Fore.GREEN}{Style.BRIGHT}┌{'─'*50}┐
+                │{Fore.MAGENTA}{Style.BRIGHT}          L0p4 TOOLKIT - MAIN MENU           {Fore.GREEN}     │
+                ├{'─'*50}┤
+                │ {Fore.CYAN}[{Fore.WHITE}1{Fore.CYAN}] {Fore.LIGHTGREEN_EX}Web Hacking                            {Fore.GREEN}      │
+                │ {Fore.CYAN}[{Fore.WHITE}2{Fore.CYAN}] {Fore.LIGHTGREEN_EX}Network Scanner                        {Fore.GREEN}      │
+                │ {Fore.CYAN}[{Fore.WHITE}3{Fore.CYAN}] {Fore.LIGHTGREEN_EX}DoS Attack                              {Fore.GREEN}     │
+                │ {Fore.CYAN}[{Fore.WHITE}4{Fore.CYAN}] {Fore.LIGHTGREEN_EX}IP Geolocation                         {Fore.GREEN}      │
+                │ {Fore.CYAN}[{Fore.WHITE}5{Fore.CYAN}] {Fore.LIGHTGREEN_EX}CCTV Cam's                              {Fore.GREEN}     │
+                │ {Fore.CYAN}[{Fore.WHITE}6{Fore.CYAN}] {Fore.LIGHTGREEN_EX}OSINT Tools                             {Fore.GREEN}     │
+                │ {Fore.CYAN}[{Fore.WHITE}7{Fore.CYAN}] {Fore.LIGHTGREEN_EX}Phishing Kit                            {Fore.GREEN}     │
+                ├{'─'*50}┤
+                │ {Fore.CYAN}[{Fore.RED}0{Fore.CYAN}] {Fore.LIGHTRED_EX}Exit                                      {Fore.GREEN}   │
+                │ {Fore.CYAN}[{Fore.YELLOW}99{Fore.CYAN}] {Fore.YELLOW}Update L0p4 Toolkit                        {Fore.GREEN} │
+                └{'─'*50}┘
+        """
+        print(menu)
         s = input(f"{Fore.GREEN} root@{username}:~$ {Style.RESET_ALL}")
 
         match s:
