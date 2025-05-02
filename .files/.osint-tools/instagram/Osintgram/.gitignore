@@ -1,0 +1,7 @@
+__pycache__/
+output/
+**/*.pyc
+**/*.json
+venv/
+credentials.ini
+settings.json

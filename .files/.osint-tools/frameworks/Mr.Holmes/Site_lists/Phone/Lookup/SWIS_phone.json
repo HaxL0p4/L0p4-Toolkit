@@ -1,0 +1,46 @@
+[
+    {
+        "Local.ch":{
+            "Error": "Message",
+            "text": "Sorry, we couldn't find any results for in switzerland",
+            "name": "Local.ch",
+            "main": "local.ch",
+            "url": "https://www.local.ch/en/q/switzerland/{}",
+            "url2": "https://www.local.ch/en/q/switzerland/{}",
+            "Scrapable": "False",
+            "Tag": ["Switzerland"]
+        },
+
+        "FreeLookup":{
+            "Error": "Status-Code",
+            "name": "FreeLookup",
+            "main": "free-lookup.net",
+            "url": "https://free-lookup.net/{}",
+            "url2": "https://free-lookup.net/{}",
+            "Scrapable": "False",
+            "Tag": ["Generic"]
+        },
+
+        "WhoseNumber":{
+            "Error": "Message",
+            "text": "No comments for this phone number",
+            "name": "WhoseNumber",
+            "main": "whosenumber.info",
+            "url": "https://whosenumber.info/{}",
+            "url2": "https://whosenumber.info/{}",
+            "Scrapable": "False",
+            "Tag": ["Generic"]
+        },
+
+        "SpamCalls":{
+            "Error": "Message",
+            "text": "User reports for the phone number are not (no longer) available.",
+            "name": "SpamCalls",
+            "main": "spamcalls.net",
+            "url": "https://spamcalls.net/en/number/{}",
+            "url2": "https://spamcalls.net/en/number/{}",
+            "Scrapable": "False",
+            "Tag": ["Generic"]
+        }
+    }
+]

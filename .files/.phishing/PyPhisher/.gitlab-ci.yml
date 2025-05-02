@@ -1,0 +1,31 @@
+stages:
+  - build
+  - deploy
+
+image: python:3.10-slim  # Adjust Python version as needed
+
+variables:
+  PYPI_USERNAME: __token__
+  PYPI_PASSWORD: $PYPI_TOKEN  # Replace with actual environment variable name
+  POETRY_VERSION: "1.8.2"
+
+build:
+  stage: build
+  script:
+    - pip install --upgrade pip
+    - pip install poetry==$POETRY_VERSION
+    - cp files/pyproject.toml .
+    - poetry install
+    - poetry build
+  artifacts:
+    paths:
+      - dist/*.whl
+
+deploy:
+  stage: deploy
+  script:
+    - poetry publish --username $PYPI_USERNAME --password $PYPI_PASSWORD
+  only:
+    - schedules  # Run only on manual triggers
+  dependencies:
+    - build

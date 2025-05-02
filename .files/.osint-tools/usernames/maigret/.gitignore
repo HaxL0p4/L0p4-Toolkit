@@ -1,0 +1,45 @@
+# Virtual Environment
+venv/
+.venv/
+
+# Editor Configurations
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+
+# Pip
+src/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# Logs and backups
+*.log
+*.bak
+
+# Output files, except requirements.txt
+*.txt
+!requirements.txt
+
+# Comma-Separated Values (CSV) Reports
+*.csv
+
+# MacOS Folder Metadata File
+.DS_Store
+/reports/
+
+# Testing
+.coverage
+dist/
+htmlcov/
+/test_*
+
+# Maigret files
+settings.json
+
+# other
+*.egg-info
+build

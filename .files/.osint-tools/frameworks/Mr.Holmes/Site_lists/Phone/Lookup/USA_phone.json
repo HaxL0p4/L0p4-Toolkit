@@ -1,0 +1,65 @@
+[
+    {  
+        "411":{
+            "Error": "Status-Code",
+            "name": "411",
+            "main": "411.com",
+            "url": "https://www.411.com/phone/{}",
+            "url2": "https://www.411.com/phone/{}",
+            "Scrapable": "False",
+            "Tag": ["USA"]
+        },
+        
+        "WhitePages":{
+            "Error": "Status-Code",
+            "name": "WhitePages",
+            "main": "whitepages.com",
+            "url": "https://www.whitepages.com/phone/{}",
+            "url2": "https://www.whitepages.com/phone/{}",
+            "Scrapable": "False",
+            "Tag": ["USA"]
+        },
+        
+        "FreeLookup":{
+            "Error": "Status-Code",
+            "name": "FreeLookup",
+            "main": "free-lookup.net",
+            "url": "https://free-lookup.net/{}",
+            "url2": "https://free-lookup.net/{}",
+            "Scrapable": "False",
+            "Tag": ["USA"]
+        },
+        
+        "8080":{
+            "Error": "Status-Code",
+            "name": "8080",
+            "main": "800notes.com",
+            "url": "https://800notes.com/Phone.aspx/{}",
+            "url2": "https://800notes.com/Phone.aspx/{}",
+            "Scrapable": "False",
+            "Tag": ["USA"]
+        },
+
+        "WhoseNumber":{
+            "Error": "Message",
+            "text": "No comments for this phone number",
+            "name": "WhoseNumber",
+            "main": "whosenumber.info",
+            "url": "https://whosenumber.info/{}",
+            "url2": "https://whosenumber.info/{}",
+            "Scrapable": "False",
+            "Tag": ["Generic"]
+        },
+
+        "SpamCalls":{
+            "Error": "Message",
+            "text": "User reports for the phone number are not (no longer) available.",
+            "name": "SpamCalls",
+            "main": "spamcalls.net",
+            "url": "https://spamcalls.net/en/number/{}",
+            "url2": "https://spamcalls.net/en/number/{}",
+            "Scrapable": "False",
+            "Tag": ["Generic"]
+        }
+    }
+] 

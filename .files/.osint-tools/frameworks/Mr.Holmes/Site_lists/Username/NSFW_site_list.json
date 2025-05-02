@@ -1,0 +1,118 @@
+[
+    {
+        "Xhamster":{
+            "Error": "Status-Code",
+            "text": "User not found",
+            "name": "XHamester",
+            "main": "https://xhamster.com",
+            "user": "https://xhamster.com/users/{}",
+            "user2": "https://xhamster.com/users/{}",
+            "exception": [" "],
+            "Scrapable": "False",
+            "Tag": ["Porn"]
+        },
+
+        "Sharesome":{
+            "Error": "Response-Url",
+            "response": "https://sharesome.com/404/",
+            "name": "Sharesome",
+            "main": "sharesome.com",
+            "user": "https://sharesome.com/{}",
+            "user2": "https://sharesome.com/{}",
+            "exception": [" "],
+            "Scrapable": "False",
+            "Tag": ["Porn"]
+        },
+
+        "PornHub":{
+            "Error": "Status-Code",
+            "name": "PornHub",
+            "main": "https://pornhub.com",
+            "user": "https://pornhub.com/users/{}",
+            "user2": "https://pornhub.com/users/{}",
+            "exception": [" "],
+            "Scrapable": "False",
+            "Tag": ["Porn"]
+        },
+
+        "YouPorn":{
+            "Error": "Status-Code",
+            "name": "YouPorn",
+            "main": "https://youporn.com",
+            "user": "https://youporn.com/uservids/{}",
+            "user2": "https://youporn.com/uservids/{}",
+            "exception": [" "],
+            "Scrapable": "False",
+            "Tag": ["Porn"]
+        },
+
+        "XVideos":{
+            "Error": "Status-Code",
+            "name": "XVideos",
+            "main": "https://xvideos.com/",
+            "user": "https://xvideos.com/profiles/{}",
+            "user2": "https://xvideos.com/profiles/{}",
+            "exception": [" "],
+            "Scrapable": "False",
+            "Tag": ["Porn-Video"]
+        },
+
+        "ChaturBate":{
+            "Error": "Status-Code",
+            "name": "ChaturBate",
+            "main": "https://chaturbate.com",
+            "user": "https://chaturbate.com/{}",
+            "user2": "https://chaturbate.com/{}",
+            "exception": [" "],
+            "Scrapable": "False",
+            "Tag": ["Porn-Chat"]
+        },
+
+        "BongaCams":{
+            "Error": "Status-Code",
+            "name": "BongaCams",
+            "main": "https://pt.bongacams.com",
+            "user": "https://pt.bongacams.com/profile/{}",
+            "user2": "https://pt.bongacams.com/profile/{}",
+            "exception": [" "],
+            "Scrapable": "False",
+            "Tag": ["Chatcam"]
+        },
+
+        "Tinder":{
+            "Error": "Message",
+            "text": "Looking for someone?",
+            "name": "Tinder",
+            "main": "tinder.com",
+            "user": "https://tinder.com/@{}",
+            "user2": "https://tinder.com/@{}",
+            "exception": [" "],
+            "Scrapable": "False",
+            "Tag": ["Appointment", "Chat", "Social"]
+        },
+
+        "LiveJasmin":{
+            "Error": "Response-Url",
+            "response": "https://www.livejasmin.com/en/girls/",
+            "name": "LiveJasmin(Girls)",
+            "main": "livejasmin.com",
+            "user": "https://www.livejasmin.com/en/girls/{}",
+            "user2": "https://www.livejasmin.com/en/girls/{}",
+            "exception": [" "],
+            "Scrapable": "False",
+            "Tag": ["Live-Porn"]
+        },
+
+        "LiveJasmin2":{
+            "Error": "Response-Url",
+            "response": "https://www.livejasmin.com/en/boys/",
+            "name": "LiveJasmin(BOYS)",
+            "main": "livejasmin.com",
+            "user": "https://www.livejasmin.com/en/boys/{}",
+            "user2": "https://www.livejasmin.com/en/boys/{}",
+            "exception": [" "],
+            "Scrapable": "False",
+            "Tag": ["Live-Porn"]
+        }
+    }
+]

@@ -1,0 +1,69 @@
+[
+    {
+        "11880":{
+            "Error": "Message",
+            "text": "Einfach nochmal probieren!",
+            "name" : "11880",
+            "main" : "11880.com",
+            "url" : "https://www.11880.com/suche/{}/deutschland",
+            "url2" : "https://www.11880.com/suche/{}/deutschland",
+            "Scrapable": "False",
+            "Tag": ["Deutschland"]
+            
+        },
+        
+        "TelefonABC":{
+            "Error": "Status-Code",
+            "name" : "TelefonABC",
+            "main" : "telefonabc.at",
+            "url" : "https://www.telefonabc.at/result.aspx?what={}",
+            "url2" : "https://www.telefonabc.at/result.aspx?what={}",
+            "Scrapable": "False",
+            "Tag": ["Deutschland"]
+        },
+        
+        "GoYellow":{
+            "Error": "Message",
+            "text" : "Zu Ihrer Suche haben wir leider nichts gefunden.",
+            "name" : "GoYellow",
+            "main" : "goyellow.de",
+            "url" : "https://www.goyellow.de/suche/{}/-",
+            "url2" : "https://www.goyellow.de/suche/{}/-",
+            "Scrapable": "False",
+            "Tag": ["Deutschland"]
+        },
+        
+        "FreeLookup":{
+            "Error": "Status-Code",
+            "name": "FreeLookup",
+            "main": "free-lookup.net",
+            "url": "https://free-lookup.net/{}",
+            "url2": "https://free-lookup.net/{}",
+            "Scrapable": "False",
+            "Tag": ["Generic"]
+        },
+
+        "WhoseNumber":{
+            "Error": "Message",
+            "text": "No comments for this phone number",
+            "name": "WhoseNumber",
+            "main": "whosenumber.info",
+            "url": "https://whosenumber.info/{}",
+            "url2": "https://whosenumber.info/{}",
+            "Scrapable": "False",
+            "Tag": ["Generic"]
+        },
+
+       "SpamCalls":{
+            "Error": "Message",
+            "text": "User reports for the phone number are not (no longer) available.",
+            "name": "SpamCalls",
+            "main": "spamcalls.net",
+            "url": "https://spamcalls.net/en/number/{}",
+            "url2": "https://spamcalls.net/en/number/{}",
+            "Scrapable": "False",
+            "Tag": ["Generic"]
+        }
+
+    }
+]

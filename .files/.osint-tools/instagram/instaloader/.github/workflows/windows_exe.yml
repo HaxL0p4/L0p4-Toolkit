@@ -1,0 +1,39 @@
+name: Windows EXE build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: Windows EXE build
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Instaloader repository
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: 'pipenv'
+          architecture: x64
+      - name: Get the tagged version
+        id: get_version
+        env:
+          GITHUB_REF: ${{ github.ref }}
+        run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_OUTPUT
+        shell: bash
+      - name: Run custom python script for EXE creation
+        env:
+          VERSION_TAG: v${{ steps.get_version.outputs.VERSION }}
+        run: python deploy/windows/create_exe.py
+      - name: Create draft release and upload EXE as release asset
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+        id: create_release
+        uses: softprops/action-gh-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.get_version.outputs.VERSION }}
+          name: Version ${{ steps.get_version.outputs.VERSION }}
+          draft: true
+          prerelease: contains(steps.get_version.outputs.VERSION, 'a') || contains(steps.get_version.outputs.VERSION, 'b') || contains(steps.get_version.outputs.VERSION, 'c')
+          files: ./instaloader-v${{ steps.get_version.outputs.VERSION }}-windows-standalone.zip

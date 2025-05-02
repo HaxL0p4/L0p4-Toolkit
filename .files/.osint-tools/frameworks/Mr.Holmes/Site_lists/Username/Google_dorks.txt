@@ -1,0 +1,89 @@
+[GENERAL-DORKS]:
+----------------------------------------------------------------------------------------------------------------------
+| https://www.google.com/search?q=inurl:(%22{}%22)
+| https://www.google.com/search?q=intext:(%22{}%22)
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:txt
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:csv
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:pdf
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:doc
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:docx
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:log
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:json
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:xml
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:xls
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:xlsx
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:odt
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:html
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:php
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:asp
+----------------------------------------------------------------------------------------------------------------------
+[IMAGE-DORKS]:
+----------------------------------------------------------------------------------------------------------------------
+| https://www.google.com/search?q=intext:(%22{}%22)&hl=&tbm=isch&source=hp&biw=&bih=&sclient=img
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:png&hl=&tbm=isch&source=hp&biw=&bih=&sclient=img
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:jpg&hl=&tbm=isch&source=hp&biw=&bih=&sclient=img
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:jpeg&hl=&tbm=isch&source=hp&biw=&bih=&sclient=img
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:gif&hl=&tbm=isch&source=hp&biw=&bih=&sclient=img
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:raw&hl=&tbm=isch&source=hp&biw=&bih=&sclient=img
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:ico&hl=&tbm=isch&source=hp&biw=&bih=&sclient=img
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:bmp&hl=&tbm=isch&source=hp&biw=&bih=&sclient=img
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:svg&hl=&tbm=isch&source=hp&biw=&bih=&sclient=img
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:webp&hl=&tbm=isch&source=hp&biw=&bih=&sclient=img
+----------------------------------------------------------------------------------------------------------------------
+[VIDEO/AUDIO-DORKS]:
+----------------------------------------------------------------------------------------------------------------------
+| https://www.google.com/search?q=intext:(%22{}%22)&hl=&tbm=vid&ei=sclient=gws-wiz-video
+| https://www.google.com/search?q=site:www.youtube.com+intext:(%22{}%22)&hl=&tbm=vid&ei=sclient=gws-wiz-video
+| https://www.google.com/search?q=site:www.tiktok.com+intext:(%22{}%22)&hl=&tbm=vid&ei=sclient=gws-wiz-video
+| https://www.google.com/search?q=site:www.facebook.com+intext:(%22{}%22)&hl=&tbm=vid&ei=sclient=gws-wiz-video
+| https://www.google.com/search?q=site:www.twitter.com+intext:(%22{}%22)&hl=&tbm=vid&ei=sclient=gws-wiz-video
+| https://www.google.com/search?q=site:www.twitch.tv+intext:(%22{}%22)&hl=&tbm=vid&ei=sclient=gws-wiz-video
+| https://www.google.com/search?q=site:www.instagram.com+intext:(%22{}%22)&hl=&tbm=vid&ei=sclient=gws-wiz-video
+----------------------------------------------------------------------------------------------------------------------
+[EMAIL-DORKS]:
+----------------------------------------------------------------------------------------------------------------------
+| https://www.google.com/search?q=intext:%22{}%22(Email+OR+E-mail+OR+email+OR+e-mail)
+| https://www.google.com/search?q=intext:%22{}%22(Email+OR+E-mail+OR+email+OR+e-mail)filetype:txt
+| https://www.google.com/search?q=intext:%22{}%22(Email+OR+E-mail+OR+email+OR+e-mail)filetype:csv
+| https://www.google.com/search?q=intext:%22{}%22(Email+OR+E-mail+OR+email+OR+e-mail)filetype:pdf
+| https://www.google.com/search?q=intext:%22{}%22(Email+OR+E-mail+OR+email+OR+e-mail)filetype:doc
+| https://www.google.com/search?q=intext:%22{}%22(Email+OR+E-mail+OR+email+OR+e-mail)filetype:docx
+| https://www.google.com/search?q=intext:%22{}%22(Email+OR+E-mail+OR+email+OR+e-mail)filetype:log
+| https://www.google.com/search?q=intext:%22{}%22(Email+OR+E-mail+OR+email+OR+e-mail)filetype:json
+| https://www.google.com/search?q=intext:%22{}%22(Email+OR+E-mail+OR+email+OR+e-mail)filetype:xml
+| https://www.google.com/search?q=intext:%22{}%22(Email+OR+E-mail+OR+email+OR+e-mail)filetype:xls
+| https://www.google.com/search?q=intext:%22{}%22(Email+OR+E-mail+OR+email+OR+e-mail)filetype:xlsx
+| https://www.google.com/search?q=intext:%22{}%22(Email+OR+E-mail+OR+email+OR+e-mail)filetype:odt
+----------------------------------------------------------------------------------------------------------------------
+[PASSWORD-DORKS]:
+----------------------------------------------------------------------------------------------------------------------
+| https://www.google.com/search?q=intext:%22{}%22(Password+OR+password+OR+PASSWORD)
+| https://www.google.com/search?q=intext:%22{}%22(Password+OR+password+OR+PASSWORD)filetype:txt
+| https://www.google.com/search?q=intext:%22{}%22(Password+OR+password+OR+PASSWORD)filetype:csv
+| https://www.google.com/search?q=intext:%22{}%22(Password+OR+password+OR+PASSWORD)filetype:pdf
+| https://www.google.com/search?q=intext:%22{}%22(Password+OR+password+OR+PASSWORD)filetype:doc
+| https://www.google.com/search?q=intext:%22{}%22(Password+OR+password+OR+PASSWORD)filetype:docx
+| https://www.google.com/search?q=intext:%22{}%22(Password+OR+password+OR+PASSWORD)filetype:log
+| https://www.google.com/search?q=intext:%22{}%22(Password+OR+password+OR+PASSWORD)filetype:json
+| https://www.google.com/search?q=intext:%22{}%22(Password+OR+password+OR+PASSWORD)filetype:xml
+| https://www.google.com/search?q=intext:%22{}%22(Password+OR+password+OR+PASSWORD)filetype:xls
+| https://www.google.com/search?q=intext:%22{}%22(Password+OR+password+OR+PASSWORD)filetype:xlsx
+| https://www.google.com/search?q=intext:%22{}%22(Password+OR+password+OR+PASSWORD)filetype:odt
+----------------------------------------------------------------------------------------------------------------------
+[INTITLE-DORKS]:
+----------------------------------------------------------------------------------------------------------------------
+| https://www.google.com/search?q=intitle:(%22{}%22)filetype:txt
+| https://www.google.com/search?q=intitle:(%22{}%22)filetype:csv
+| https://www.google.com/search?q=intitle:(%22{}%22)filetype:pdf
+| https://www.google.com/search?q=intitle:(%22{}%22)filetype:doc
+| https://www.google.com/search?q=intitle:(%22{}%22)filetype:docx
+| https://www.google.com/search?q=intitle:(%22{}%22)filetype:log
+| https://www.google.com/search?q=intitle:(%22{}%22)filetype:json
+| https://www.google.com/search?q=intitle:(%22{}%22)filetype:xml
+| https://www.google.com/search?q=intitle:(%22{}%22)filetype:xls
+| https://www.google.com/search?q=intitle:(%22{}%22)filetype:xlsx
+| https://www.google.com/search?q=intitle:(%22{}%22)filetype:odt
+| https://www.google.com/search?q=intitle:(%22{}%22)filetype:html
+| https://www.google.com/search?q=intitle:(%22{}%22)filetype:php
+| https://www.google.com/search?q=intitle:(%22{}%22)filetype:asp
+----------------------------------------------------------------------------------------------------------------------

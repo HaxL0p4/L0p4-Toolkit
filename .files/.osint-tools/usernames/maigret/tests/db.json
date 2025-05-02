@@ -1,0 +1,63 @@
+{
+    "engines": {
+        "Discourse": {
+            "name": "Discourse",
+            "site": {
+                "presenseStrs": [
+                    "<meta name=\"generator\" content=\"Discourse"
+                ],
+                "absenceStrs": [
+                    "Oops! That page doesn\u2019t exist or is private.",
+                    "wrap not-found-container"
+                ],
+                "checkType": "message",
+                "url": "{urlMain}/u/{username}/summary"
+            },
+            "presenseStrs": [
+                "<meta name=\"generator\" content=\"Discourse"
+            ]
+        }
+    },
+    "sites": {
+        "ValidActive": {
+            "tags": ["global", "us"],
+            "disabled": false,
+            "checkType": "status_code",
+            "alexaRank": 1,
+            "url": "https://play.google.com/store/apps/developer?id={username}",
+            "urlMain": "https://play.google.com/store",
+            "usernameClaimed": "KONAMI",
+            "usernameUnclaimed": "noonewouldeverusethis7"
+        },
+        "InvalidActive": {
+            "tags": ["global", "us"],
+            "disabled": false,
+            "checkType": "status_code",
+            "alexaRank": 1,
+            "url": "https://play.google.com/store/apps/dev?id={username}",
+            "urlMain": "https://play.google.com/store",
+            "usernameClaimed": "KONAMI",
+            "usernameUnclaimed": "noonewouldeverusethis7"
+        },
+        "ValidInactive": {
+            "tags": ["global", "us"],
+            "disabled": true,
+            "checkType": "status_code",
+            "alexaRank": 1,
+            "url": "https://play.google.com/store/apps/developer?id={username}",
+            "urlMain": "https://play.google.com/store",
+            "usernameClaimed": "KONAMI",
+            "usernameUnclaimed": "noonewouldeverusethis7"
+        },
+        "InvalidInactive": {
+            "tags": ["global", "us"],
+            "disabled": true,
+            "checkType": "status_code",
+            "alexaRank": 1,
+            "url": "https://play.google.com/store/apps/dev?id={username}",
+            "urlMain": "https://play.google.com/store",
+            "usernameClaimed": "KONAMI",
+            "usernameUnclaimed": "noonewouldeverusethis7"
+        }
+    }
+}

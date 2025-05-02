@@ -1,0 +1,37 @@
+[GENERAL-DORKS]:
+----------------------------------------------------------------------------------------------------------------------
+| https://www.google.com/search?q=inurl:%22{}%22
+| https://www.google.com/search?q=intext:%22{}%22
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:txt
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:csv
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:pdf
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:doc
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:docx
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:log
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:xls
+| https://www.google.com/search?q=intext:(%22{}%22)filetype:xlsx
+----------------------------------------------------------------------------------------------------------------------
+[PASSWORD-DORKS]:
+----------------------------------------------------------------------------------------------------------------------
+| https://www.google.com/search?q=intext:%22{}%22(Password+OR+password+OR+PASSWORD)
+| https://www.google.com/search?q=intext:%22{}%22(Password+OR+password+OR+PASSWORD)filetype:txt
+| https://www.google.com/search?q=intext:%22{}%22(Password+OR+password+OR+PASSWORD)filetype:csv
+| https://www.google.com/search?q=intext:%22{}%22(Password+OR+password+OR+PASSWORD)filetype:pdf
+| https://www.google.com/search?q=intext:%22{}%22(Password+OR+password+OR+PASSWORD)filetype:doc
+| https://www.google.com/search?q=intext:%22{}%22(Password+OR+password+OR+PASSWORD)filetype:docx
+| https://www.google.com/search?q=intext:%22{}%22(Password+OR+password+OR+PASSWORD)filetype:log
+| https://www.google.com/search?q=intext:%22{}%22(Password+OR+password+OR+PASSWORD)filetype:xls
+| https://www.google.com/search?q=intext:%22{}%22(Password+OR+password+OR+PASSWORD)filetype:xlsx
+----------------------------------------------------------------------------------------------------------------------
+[INTITLE-DORKS]:
+----------------------------------------------------------------------------------------------------------------------
+| https://www.google.com/search?q=intitle:(%22{}%22)filetype:txt
+| https://www.google.com/search?q=intitle:(%22{}%22)filetype:csv
+| https://www.google.com/search?q=intitle:(%22{}%22)filetype:pdf
+| https://www.google.com/search?q=intitle:(%22{}%22)filetype:doc
+| https://www.google.com/search?q=intitle:(%22{}%22)filetype:docx
+| https://www.google.com/search?q=intitle:(%22{}%22)filetype:log
+| https://www.google.com/search?q=intitle:(%22{}%22)filetype:xls
+| https://www.google.com/search?q=intitle:(%22{}%22)filetype:xlsx
+| https://www.google.com/search?q=inurl:%22{}%22
+----------------------------------------------------------------------------------------------------------------------

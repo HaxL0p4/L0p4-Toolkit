@@ -1,0 +1,28 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "PyPhisher"
+version = "2.1.8"
+readme = "README.md"
+license = "MIT"
+repository = "https://gitlab.com/KasRoudra/PyPhisher/"
+include = ["README.md", "LICENSE"]
+description = "Ultimate phishing tool in python with dual tunneling, 77 templates and many more!"
+authors = ["KasRoudra <kasroudrakrd@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+requests = "^2.3.0"
+rich = "^13.0.0"
+beautifulsoup4 = "^4.12"
+
+[tool.poetry.scripts]
+pyphisher = "pyphisher:main"
+
+[build-system.sdist]
+formats = ["gztar"]
+
+[build-system.bdist_wheel]
+universal = false

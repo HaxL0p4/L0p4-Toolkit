@@ -1,0 +1,96 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "maigret"
+version = "0.5.0a1"
+description = "🕵️‍♂️ Collect a dossier on a person by username from thousands of sites."
+authors = ["Soxoj <soxoj@protonmail.com>"]
+readme = "README.md"
+license = "MIT License"
+homepage = "https://pypi.org/project/maigret"
+documentation = "https://maigret.readthedocs.io"
+repository = "https://github.com/soxoj/maigret"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python :: 3",
+    "Intended Audience :: Information Technology",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English"
+]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/soxoj/maigret/issues"
+
+[tool.poetry.dependencies]
+# poetry install
+# Install only production dependencies:
+# poetry install --without dev
+# Install with dev dependencies:
+# poetry install --with dev
+python = "^3.10"
+aiodns = "^3.0.0"
+aiohttp = "^3.11.11"
+aiohttp-socks = "^0.10.1"
+arabic-reshaper = "^3.0.0"
+async-timeout = "^5.0.1"
+attrs = "^24.3.0"
+certifi = "^2024.12.14"
+chardet = "^5.0.0"
+colorama = "^0.4.6"
+future = "^1.0.0"
+future-annotations= "^1.0.0"
+html5lib = "^1.1"
+idna = "^3.4"
+Jinja2 = "^3.1.5"
+lxml = "^5.3.0"
+MarkupSafe = "^3.0.2"
+mock = "^5.1.0"
+multidict = "^6.0.4"
+pycountry = "^24.6.1"
+PyPDF2 = "^3.0.1"
+PySocks = "^1.7.1"
+python-bidi = "^0.6.3"
+requests = "^2.31.0"
+requests-futures = "^1.0.2"
+six = "^1.17.0"
+socid-extractor = "^0.0.27"
+soupsieve = "^2.6"
+stem = "^1.8.1"
+torrequest = "^0.1.0"
+alive_progress = "^3.2.0"
+typing-extensions = "^4.8.0"
+webencodings = "^0.5.1"
+xhtml2pdf = "^0.2.11"
+XMind = "^1.2.0"
+yarl = "^1.18.3"
+networkx = "^2.6.3"
+pyvis = "^0.3.2"
+reportlab = "^4.2.0"
+cloudscraper = "^1.2.71"
+flask = {extras = ["async"], version = "^3.1.0"}
+asgiref = "^3.8.1"
+platformdirs = "^4.3.6"
+
+
+[tool.poetry.group.dev.dependencies]
+# How to add a new dev dependency: poetry add black --group dev
+# Install dev dependencies with: poetry install --with dev
+flake8 = "^7.1.1"
+pytest = "^8.3.4"
+pytest-asyncio = "^0.25.2"
+pytest-cov = "^6.0.0"
+pytest-httpserver = "^1.0.0"
+pytest-rerunfailures = "^15.0"
+reportlab = "^4.2.0"
+mypy = "^1.14.1"
+tuna = "^0.5.11"
+coverage = "^7.6.10"
+black = "^24.10.0"
+
+[tool.poetry.scripts]
+# Run with: poetry run maigret <username>
+maigret = "maigret.maigret:run"
+update_sitesmd = "utils.update_site_data:main"
