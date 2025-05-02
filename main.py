@@ -315,6 +315,35 @@ def wireless_tools():
     main()
 
 
+
+def phishing():
+    try:
+        clear()
+        text_animation(title, 0.0005)
+
+        print(f"\n{Fore.LIGHTCYAN_EX} --- Phishing ---{Style.RESET_ALL}\n")
+        print(f" {Fore.CYAN}[{Fore.WHITE}1{Fore.CYAN}] Webcam Phishing")
+        print(f" [{Fore.WHITE}2{Fore.CYAN}] Credential Phishing")
+
+        print(f"\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}] Menu{Style.RESET_ALL}")
+
+
+        s = input(f"\n{Fore.GREEN} root@{username}/phishing:~$ {Style.RESET_ALL}")
+
+        if s == "1":
+            os.system("bash .files/.phishing/L0p4-CamPhisher/L0p4-CamPhisher.sh")
+        elif s == "2":
+            os.system("python3 .files/.phishing/PyPhisher/pyphisher.py")
+        elif s == "0":
+            main()
+        else: 
+            pass
+
+
+    except KeyboardInterrupt:
+        close_program()
+
+
 def osint():
     try:
         clear()
@@ -703,7 +732,9 @@ def CCTV():
             last_page = re.findall(r'pagenavigator\("\?page=", (\d+)', res.text)
             last_page = int(last_page[0]) if last_page else 1
 
-            with open(f'{country}.txt', 'w') as f:
+
+            os.makedirs("cams", exist_ok=True)
+            with open(f'cams/{country}.txt', 'w') as f:
                 for page in range(last_page):
                     res = requests.get(
                         f"http://www.insecam.org/en/bycountry/{country}/?page={page}",
@@ -748,9 +779,9 @@ def main():
         text_animation(f"                                \033[1;37mCreated by \033[1;31mL0pa 💻\033[0m\n", 0.0005)
         text_animation(f"{Fore.CYAN} \t\t\t\tTikTok: {Style.RESET_ALL}{Fore.LIGHTBLUE_EX}@_.l0pa._\n\n{Style.RESET_ALL}", 0.0005)
 
-        print(f"{Fore.LIGHTCYAN_EX} --- Main Menu ---\t\t --- Coming Soon ---{Style.RESET_ALL}")
+        print(f"{Fore.LIGHTCYAN_EX} --- Main Menu --- {Style.RESET_ALL}")
 
-        print(f"{Fore.CYAN}\n [{Fore.WHITE}1{Fore.CYAN}] Web Hacking\t\t [{Fore.WHITE}7{Fore.CYAN}] Phishing\n [{Fore.WHITE}2{Fore.CYAN}] Network\t\t\t [{Fore.WHITE}8{Fore.CYAN}] Wireless Tools \t\t\n [{Fore.WHITE}3{Fore.CYAN}] DoS Attack\n [{Fore.WHITE}4{Fore.CYAN}] Ip Geolocation\n [{Fore.WHITE}5{Fore.CYAN}] CCTV Cam's\n [{Fore.WHITE}6{Fore.CYAN}] OSINT\n\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}]  Exit\n [{Style.RESET_ALL}{Fore.YELLOW}99{Fore.CYAN}] Update L0p4 Toolkit{Style.RESET_ALL}\n")
+        print(f"{Fore.CYAN}\n [{Fore.WHITE}1{Fore.CYAN}] Web Hacking\n [{Fore.WHITE}2{Fore.CYAN}] Network\n [{Fore.WHITE}3{Fore.CYAN}] DoS Attack\n [{Fore.WHITE}4{Fore.CYAN}] Ip Geolocation\n [{Fore.WHITE}5{Fore.CYAN}] CCTV Cam's\n [{Fore.WHITE}6{Fore.CYAN}] OSINT\n [{Fore.WHITE}7{Fore.CYAN}] Phishing\n\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}]  Exit\n [{Style.RESET_ALL}{Fore.YELLOW}99{Fore.CYAN}] Update L0p4 Toolkit{Style.RESET_ALL}\n")
         s = input(f"{Fore.GREEN} root@{username}:~$ {Style.RESET_ALL}")
 
         match s:
@@ -767,7 +798,7 @@ def main():
             case "6":
                 osint()
             case "7":
-                remote_access()
+                phishing()
             case "8":
                 wireless_tools()
             case "99":
