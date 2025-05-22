@@ -53,6 +53,14 @@ def text_animation(text, ms):
         time.sleep(ms)
 
 
+def menu_intro(section_name):
+    clear()
+    text_animation(title,0.0005)
+    text_animation(f"                                \033[1;37mCreated by \033[1;31mL0pa 💻\033[0m\n", 0.0005)
+    text_animation(f"{Fore.CYAN} \t\t\t\tTikTok: {Style.RESET_ALL}{Fore.LIGHTBLUE_EX}@_.l0pa._\n\n{Style.RESET_ALL}", 0.0005)
+    print(f"\n{Fore.LIGHTCYAN_EX} --- {section_name} ---{Style.RESET_ALL}\n")
+
+
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
     
@@ -67,10 +75,10 @@ def windows():
         {Fore.GREEN}{Style.BRIGHT}┌{'─'*50}┐
         │{Fore.MAGENTA}{Style.BRIGHT}          L0p4 TOOLKIT - MAIN MENU           {Fore.GREEN}     │
         ├{'─'*50}┤
-        │ {Fore.CYAN}[{Fore.WHITE}2{Fore.CYAN}] {Fore.LIGHTGREEN_EX}Network Scanner                        {Fore.GREEN}      │
-        │ {Fore.CYAN}[{Fore.WHITE}4{Fore.CYAN}] {Fore.LIGHTGREEN_EX}DoS Attack                              {Fore.GREEN}     │
-        │ {Fore.CYAN}[{Fore.WHITE}5{Fore.CYAN}] {Fore.LIGHTGREEN_EX}IP Geolocation                         {Fore.GREEN}      │
-        │ {Fore.CYAN}[{Fore.WHITE}6{Fore.CYAN}] {Fore.LIGHTGREEN_EX}CCTV Cam's                              {Fore.GREEN}     │
+        │ {Fore.CYAN}[{Fore.WHITE}1{Fore.CYAN}] {Fore.LIGHTGREEN_EX}Network Scanner                        {Fore.GREEN}      │
+        │ {Fore.CYAN}[{Fore.WHITE}2{Fore.CYAN}] {Fore.LIGHTGREEN_EX}DoS Attack                              {Fore.GREEN}     │
+        │ {Fore.CYAN}[{Fore.WHITE}3{Fore.CYAN}] {Fore.LIGHTGREEN_EX}IP Geolocation                         {Fore.GREEN}      │
+        │ {Fore.CYAN}[{Fore.WHITE}4{Fore.CYAN}] {Fore.LIGHTGREEN_EX}CCTV Cam's                              {Fore.GREEN}     │
         ├{'─'*50}┤
         │ {Fore.CYAN}[{Fore.RED}0{Fore.CYAN}] {Fore.LIGHTRED_EX}Exit                                      {Fore.GREEN}   │
         │ {Fore.CYAN}[{Fore.YELLOW}99{Fore.CYAN}] {Fore.YELLOW}Update L0p4 Toolkit                        {Fore.GREEN} │
@@ -283,14 +291,7 @@ def check_wpscan():
 
 def web_hacking():
     try:
-        clear()
-        text_animation(title, 0.0005)
-
-        text_animation(f"                                \033[1;37mCreated by \033[1;31mL0pa 💻\033[0m\n", 0.0005)
-        text_animation(f"{Fore.CYAN} \t\t\t\tTikTok: {Style.RESET_ALL}{Fore.LIGHTBLUE_EX}@_.l0pa._\n\n{Style.RESET_ALL}", 0.0005)
-
-        print(f"{Fore.LIGHTCYAN_EX} --- Web Hacking ---{Style.RESET_ALL}")
-
+        menu_intro("Web Hacking")
 
         print(f"{Fore.CYAN}\n [{Fore.WHITE}1{Fore.CYAN}] SQLMap\n [{Fore.WHITE}2{Fore.CYAN}] xsstrike\n [{Fore.WHITE}3{Fore.CYAN}] WPScan\n [{Fore.WHITE}4{Fore.CYAN}] WHOIS Lookup\n [{Fore.WHITE}5{Fore.CYAN}] DNS Lookup\n [{Fore.WHITE}6{Fore.CYAN}] Subdomain Scanner\n [{Fore.WHITE}7{Fore.CYAN}] Port Scanner\n\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}] Menu{Style.RESET_ALL}\n")
         s = input(f"{Fore.GREEN} root@{username}/WebHacking:~$ {Style.RESET_ALL}")
@@ -341,19 +342,27 @@ def run_xsstrike(url):
 
 
 
+def revshell():
+    pass
+
+
 def remote_access():
-    clear()
-    text_animation(title,0.0005)
-    
-    print(f"\n{Fore.LIGHTCYAN_EX} --- Remote Access ---{Style.RESET_ALL}\n")
+    menu_intro("Remote Access")
+
     print(f" {Fore.CYAN}[{Fore.WHITE}1{Fore.CYAN}] FUD Reverse Shell")
 
     print(f"\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}] Menu{Style.RESET_ALL}")
 
-    #s = input(f"\n{Fore.GREEN} root@{username}/RemoteAccess:~$ {Style.RESET_ALL}")
-    text_animation(" Coming Soon ;) Returning at the menu in 3 sec...",0.01)
-    time.sleep(3)
-    main()
+    s = input(f"\n{Fore.GREEN} root@{username}/RemoteAccess:~$ {Style.RESET_ALL}")
+
+    match s:
+        case "1":
+            revshell()
+        case "0":
+            main()
+    #text_animation(" Coming Soon ;) Returning at the menu in 3 sec...",0.01)
+    #time.sleep(3)
+    #main()
 
 
 
@@ -366,10 +375,7 @@ def wireless_tools():
 
 def phishing():
     try:
-        clear()
-        text_animation(title, 0.0005)
-
-        print(f"\n{Fore.LIGHTCYAN_EX} --- Phishing ---{Style.RESET_ALL}\n")
+        menu_intro("Phishing")
         print(f" {Fore.CYAN}[{Fore.WHITE}1{Fore.CYAN}] Webcam Phishing")
         print(f" [{Fore.WHITE}2{Fore.CYAN}] Credential Phishing")
 
@@ -394,13 +400,7 @@ def phishing():
 
 def osint():
     try:
-        clear()
-        text_animation(title, 0.0005)
-
-        text_animation(f"                                \033[1;37mCreated by \033[1;31mL0pa 💻\033[0m\n", 0.0005)
-        text_animation(f"{Fore.CYAN} \t\t\t\tTikTok: {Style.RESET_ALL}{Fore.LIGHTBLUE_EX}@_.l0pa._\n\n{Style.RESET_ALL}", 0.0005)
-
-        print(f"{Fore.LIGHTCYAN_EX} --- OSINT ---{Style.RESET_ALL}\n")
+        menu_intro("OSINT")
 
         print(f"{Fore.GREEN}+{'-'*37}+{'-'*37}+{Style.RESET_ALL}")
         print(f"{Fore.GREEN}|{Style.RESET_ALL}          {Fore.YELLOW}--- Usernames ---{Style.RESET_ALL}          {Fore.GREEN}|{Style.RESET_ALL}          {Fore.YELLOW}--- Instagram ---{Style.RESET_ALL}          {Fore.GREEN}|{Style.RESET_ALL}")
@@ -578,9 +578,8 @@ def netcat_listener():
 
 def network():
     try:
-        clear()
-        text_animation(title, 0.0005)
-        print(f"\n{Fore.LIGHTCYAN_EX} --- Network ---{Style.RESET_ALL}\n")
+        menu_intro("Network")
+
         print(f" {Fore.CYAN}[{Fore.WHITE}1{Fore.CYAN}] Network Scanner")
         print(f" [{Fore.WHITE}2{Fore.CYAN}] Port Scanner")
         print(f" [{Fore.WHITE}3{Fore.CYAN}] Web Spy")
