@@ -782,9 +782,12 @@ def CCTV():
                 print("\n\033[1;32m=== Available Country Codes ===\033[0m")
                 for key, value in countries.items():
                     print(f'\033[1;36mCode: ({key}) - {value["country"]} ({value["count"]})\033[0m')
+                print(f"\n{Fore.CYAN}[{Fore.RED}0{Fore.CYAN}] {Fore.LIGHTRED_EX}Menu                                      {Fore.GREEN}")
 
             print("")
             country = input("\033[1;33m[?] Enter country code (e.g. JP, RU, US): \033[0m").strip().upper()
+
+            if country == "0": main()
 
             typewriter(f"\033[1;34m[+] Scanning feeds in region: {country}...\033[0m", 0.03)
             res = requests.get(f"http://www.insecam.org/en/bycountry/{country}", headers=headers)
