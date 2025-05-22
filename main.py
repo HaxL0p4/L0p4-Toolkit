@@ -30,6 +30,7 @@ colorama.init()
 
 def close_program():
     text_animation(f"\n{Fore.RED} [💀] Closing The Program...{Style.RESET_ALL}\n", 0.02)
+    sys.exit()
 
 
 
@@ -196,15 +197,15 @@ def subdomain_scanner():
 
 def port_scanner():
     try:
-        target = input(f"{Fore.YELLOW}Target IP or domain: {Style.RESET_ALL}")
+        target = input(f"{Fore.YELLOW} Target IP or domain: {Style.RESET_ALL}")
         ports = [21, 22, 23, 25, 53, 80, 110, 139, 143, 443, 445, 8080]
-        print(f"{Fore.YELLOW}[*] Scanning ports...{Style.RESET_ALL}")
+        print(f"{Fore.YELLOW} [*] Scanning ports...{Style.RESET_ALL}\n")
         for port in ports:
             s = socket.socket()
             s.settimeout(1)
             try:
                 s.connect((target, port))
-                print(f"{Fore.GREEN}[+] Port {port} is OPEN{Style.RESET_ALL}")
+                print(f"{Fore.GREEN} [+] Port {port} is OPEN{Style.RESET_ALL}")
             except:
                 pass
             s.close()
@@ -691,11 +692,10 @@ def get_public_ip():
 
 def ip_geo():
     try:
-        clear()
-        text_animation(title, 0.0005)
+        menu_intro("IP GEOLOCATOR")
 
         public_ip = get_public_ip()
-        print(f"\n Your ip address: {Fore.RED}{public_ip}{Style.RESET_ALL}")
+        print(f" Your ip address: {Fore.RED}{public_ip}{Style.RESET_ALL}")
         print(f'\n Type "{Fore.RED}0{Style.RESET_ALL}" for return back')
 
         target_ip = input(f"{Fore.RED} TARGET IP: {Style.RESET_ALL}")
