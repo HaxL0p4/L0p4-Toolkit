@@ -55,6 +55,44 @@ def text_animation(text, ms):
 
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
+    
+    
+def windows():
+    clear()
+    text_animation(title, 0.0005)
+    text_animation(f"                                \033[1;37mCreated by \033[1;31mL0pa 💻\033[0m\n", 0.0005)
+    text_animation(f"{Fore.CYAN} \t\t\t\tTikTok: {Style.RESET_ALL}{Fore.LIGHTBLUE_EX}@_.l0pa._\n{Style.RESET_ALL}", 0.0005)
+    
+    menu = f"""
+        {Fore.GREEN}{Style.BRIGHT}┌{'─'*50}┐
+        │{Fore.MAGENTA}{Style.BRIGHT}          L0p4 TOOLKIT - MAIN MENU           {Fore.GREEN}     │
+        ├{'─'*50}┤
+        │ {Fore.CYAN}[{Fore.WHITE}2{Fore.CYAN}] {Fore.LIGHTGREEN_EX}Network Scanner                        {Fore.GREEN}      │
+        │ {Fore.CYAN}[{Fore.WHITE}4{Fore.CYAN}] {Fore.LIGHTGREEN_EX}DoS Attack                              {Fore.GREEN}     │
+        │ {Fore.CYAN}[{Fore.WHITE}5{Fore.CYAN}] {Fore.LIGHTGREEN_EX}IP Geolocation                         {Fore.GREEN}      │
+        │ {Fore.CYAN}[{Fore.WHITE}6{Fore.CYAN}] {Fore.LIGHTGREEN_EX}CCTV Cam's                              {Fore.GREEN}     │
+        ├{'─'*50}┤
+        │ {Fore.CYAN}[{Fore.RED}0{Fore.CYAN}] {Fore.LIGHTRED_EX}Exit                                      {Fore.GREEN}   │
+        │ {Fore.CYAN}[{Fore.YELLOW}99{Fore.CYAN}] {Fore.YELLOW}Update L0p4 Toolkit                        {Fore.GREEN} │
+        └{'─'*50}┘
+    """
+    print(menu)
+    s = input(f"{Fore.GREEN} root@{username}:~$ {Style.RESET_ALL}")
+    
+    
+    match s:
+        case "1":
+            network()
+        case "2":
+            dos()
+        case "3":
+            ip_geo()
+        case "4":
+            CCTV()
+        case "0":
+            close_program()
+        case "99":
+            update_lopa_toolkit()
 
 
 def ask_next_action(current_tool_func, back_to_menu_func, prev_func):
@@ -304,9 +342,19 @@ def run_xsstrike(url):
 
 
 def remote_access():
-    text_animation(f"{Fore.RED}Coming Soon...{Style.RESET_ALL}", 0.01)
-    time.sleep(1)
+    clear()
+    text_animation(title,0.0005)
+    
+    print(f"\n{Fore.LIGHTCYAN_EX} --- Remote Access ---{Style.RESET_ALL}\n")
+    print(f" {Fore.CYAN}[{Fore.WHITE}1{Fore.CYAN}] FUD Reverse Shell")
+
+    print(f"\n [{Style.RESET_ALL}{Fore.RED}0{Fore.CYAN}] Menu{Style.RESET_ALL}")
+
+    #s = input(f"\n{Fore.GREEN} root@{username}/RemoteAccess:~$ {Style.RESET_ALL}")
+    text_animation(" Coming Soon ;) Returning at the menu in 3 sec...",0.01)
+    time.sleep(3)
     main()
+
 
 
 def wireless_tools():
@@ -785,6 +833,9 @@ def update_lopa_toolkit():
 
 def main():
     try:
+        if os.name == "nt":
+            windows()
+            
         clear()
         text_animation(title, 0.0005)
 
@@ -794,20 +845,21 @@ def main():
         #print(f"{Fore.LIGHTCYAN_EX} --- Main Menu --- {Style.RESET_ALL}")
 
         menu = f"""
-                {Fore.GREEN}{Style.BRIGHT}┌{'─'*50}┐
-                │{Fore.MAGENTA}{Style.BRIGHT}          L0p4 TOOLKIT - MAIN MENU           {Fore.GREEN}     │
-                ├{'─'*50}┤
-                │ {Fore.CYAN}[{Fore.WHITE}1{Fore.CYAN}] {Fore.LIGHTGREEN_EX}Web Hacking                            {Fore.GREEN}      │
-                │ {Fore.CYAN}[{Fore.WHITE}2{Fore.CYAN}] {Fore.LIGHTGREEN_EX}Network Scanner                        {Fore.GREEN}      │
-                │ {Fore.CYAN}[{Fore.WHITE}3{Fore.CYAN}] {Fore.LIGHTGREEN_EX}DoS Attack                              {Fore.GREEN}     │
-                │ {Fore.CYAN}[{Fore.WHITE}4{Fore.CYAN}] {Fore.LIGHTGREEN_EX}IP Geolocation                         {Fore.GREEN}      │
-                │ {Fore.CYAN}[{Fore.WHITE}5{Fore.CYAN}] {Fore.LIGHTGREEN_EX}CCTV Cam's                              {Fore.GREEN}     │
-                │ {Fore.CYAN}[{Fore.WHITE}6{Fore.CYAN}] {Fore.LIGHTGREEN_EX}OSINT Tools                             {Fore.GREEN}     │
-                │ {Fore.CYAN}[{Fore.WHITE}7{Fore.CYAN}] {Fore.LIGHTGREEN_EX}Phishing Kit                            {Fore.GREEN}     │
-                ├{'─'*50}┤
-                │ {Fore.CYAN}[{Fore.RED}0{Fore.CYAN}] {Fore.LIGHTRED_EX}Exit                                      {Fore.GREEN}   │
-                │ {Fore.CYAN}[{Fore.YELLOW}99{Fore.CYAN}] {Fore.YELLOW}Update L0p4 Toolkit                        {Fore.GREEN} │
-                └{'─'*50}┘
+            {Fore.GREEN}{Style.BRIGHT}┌{'─'*50}┐
+            │{Fore.MAGENTA}{Style.BRIGHT}          L0p4 TOOLKIT - MAIN MENU           {Fore.GREEN}     │
+            ├{'─'*50}┤
+            │ {Fore.CYAN}[{Fore.WHITE}1{Fore.CYAN}] {Fore.LIGHTGREEN_EX}Web Hacking                            {Fore.GREEN}      │
+            │ {Fore.CYAN}[{Fore.WHITE}2{Fore.CYAN}] {Fore.LIGHTGREEN_EX}Network Scanner                        {Fore.GREEN}      │
+            │ {Fore.CYAN}[{Fore.WHITE}3{Fore.CYAN}] {Fore.LIGHTGREEN_EX}Remote Access                          {Fore.GREEN}      │
+            │ {Fore.CYAN}[{Fore.WHITE}4{Fore.CYAN}] {Fore.LIGHTGREEN_EX}DoS Attack                              {Fore.GREEN}     │
+            │ {Fore.CYAN}[{Fore.WHITE}5{Fore.CYAN}] {Fore.LIGHTGREEN_EX}IP Geolocation                         {Fore.GREEN}      │
+            │ {Fore.CYAN}[{Fore.WHITE}6{Fore.CYAN}] {Fore.LIGHTGREEN_EX}CCTV Cam's                              {Fore.GREEN}     │
+            │ {Fore.CYAN}[{Fore.WHITE}7{Fore.CYAN}] {Fore.LIGHTGREEN_EX}OSINT Tools                             {Fore.GREEN}     │
+            │ {Fore.CYAN}[{Fore.WHITE}8{Fore.CYAN}] {Fore.LIGHTGREEN_EX}Phishing Kit                            {Fore.GREEN}     │
+            ├{'─'*50}┤
+            │ {Fore.CYAN}[{Fore.RED}0{Fore.CYAN}] {Fore.LIGHTRED_EX}Exit                                      {Fore.GREEN}   │
+            │ {Fore.CYAN}[{Fore.YELLOW}99{Fore.CYAN}] {Fore.YELLOW}Update L0p4 Toolkit                        {Fore.GREEN} │
+            └{'─'*50}┘
         """
         print(menu)
         s = input(f"{Fore.GREEN} root@{username}:~$ {Style.RESET_ALL}")
@@ -818,17 +870,17 @@ def main():
             case "2":
                 network()
             case "3":
-                dos()
+                remote_access()
             case "4":
-                ip_geo()
+                dos()
             case "5":
-                CCTV()
+                ip_geo()
             case "6":
-                osint()
+                CCTV()
             case "7":
-                phishing()
+                osint()
             case "8":
-                wireless_tools()
+                phishing()
             case "99":
                 update_lopa_toolkit()
             case "0":
@@ -836,6 +888,7 @@ def main():
             case _:
                 print(f"{Fore.RED}Invalid input.{Style.RESET_ALL}")
                 main()
+
     except KeyboardInterrupt:
         close_program()
 
