@@ -90,7 +90,7 @@ def windows():
         case "4":
             CCTV()
         case "0":
-            close_program()
+            sys.exit()
         case "99":
             update_lopa_toolkit()
 
