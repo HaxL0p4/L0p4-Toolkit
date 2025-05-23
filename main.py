@@ -24,14 +24,39 @@ from colorama import Fore, Style
 from requests.structures import CaseInsensitiveDict
 from scapy.all import sniff, ARP, send, DNSQR, IP, getmacbyip, Ether, sendp, conf
 
+############################################## SETTINGS FUNCTIONS ##################################################
 
 username = getpass.getuser()
 colorama.init()
+
+
+
+def check_distro():
+    try:
+        with open("/etc/os-release") as f:
+            distro = f.read().lower()
+            if "debian" in distro or "ubuntu" in distro:
+                return "debian_based"
+            elif "fedora" in distro or "rhel" in distro or "centos" in distro:
+                return "fedora_based"
+            elif "arch" in distro or "manjaro" in distro:
+                return "arch_based"
+            else:
+                return "other_os"
+    except FileNotFoundError:
+        return "unknown"
+
+
+
 
 def close_program():
     text_animation(f"\n{Fore.RED} [💀] Closing The Program...{Style.RESET_ALL}\n", 0.02)
     sys.exit()
 
+
+def is_command_available(cmd):
+    result = subprocess.run(['which', cmd], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    return result.returncode == 0
 
 
 def command_exist(cmd):
@@ -122,7 +147,10 @@ def ask_next_action(current_tool_func, back_to_menu_func, prev_func):
     except KeyboardInterrupt:
         close_program()
 
+##################################################################################################################
 
+
+################################# WEB HACKING ####################################################################
 
 def whois_lookup():
     try:
@@ -256,20 +284,6 @@ def run_wpscan():
         return
 
 
-def check_distro():
-    try:
-        with open("etc/os-relase") as f:
-            distro = f.read().lower()
-            if "debian" in distro or "ubuntu" in distro:
-                return "debian_based"
-            elif "arch" in distro or "manjaro" in distro:
-                return "arch_based"
-            else:
-                return "other_os"
-    except FileNotFoundError:
-        # Error opening the file
-        pass
-
 def check_wpscan():
     try:
         if command_exist("wpscan"):
@@ -341,10 +355,10 @@ def run_xsstrike(url):
     except KeyboardInterrupt:
         close_program()
 
+##############################################################################################################################
 
 
-def revshell():
-    pass
+############################################## REMOTE ACCESS #################################################################
 
 
 def remote_access():
@@ -364,8 +378,13 @@ def remote_access():
     #text_animation(" Coming Soon ;) Returning at the menu in 3 sec...",0.01)
     #time.sleep(3)
     #main()
+    
+    
+def revshell():
+    pass
 
 
+###############################################################################################################################
 
 def wireless_tools():
     text_animation(f"{Fore.RED}Coming Soon...{Style.RESET_ALL}", 0.01)
@@ -399,6 +418,76 @@ def phishing():
         close_program()
 
 
+
+########################################### OSINT ##########################################################
+
+
+def setup(tool):
+    if is_command_available(tool) and tool in tools:
+        tools[tool]()
+    else:
+        if not is_command_available("pipx"):
+            if check_distro() == "debian_based":
+                os.system("sudo apt install pipx")
+            elif check_distro() == "arch_based":
+                os.system("sudo pacman -S pipx")
+            elif check_distro() == "fedora_based":
+                os.system("sudo dnf install pipx")
+        else:
+            print("\n")
+            os.system(f"pipx install {tools_install[tool]}")
+            tools[tool]()
+
+
+def sherlock():
+    menu_intro("Sherlock Osint Tool")
+    s = input(f"{Fore.GREEN} Username > {Style.RESET_ALL}")
+    print("\n")
+    os.system(f"sherlock {s}")
+    ask_next_action(sherlock, osint, "OSINT")
+    
+
+
+def maigret():
+    menu_intro("Maigret Osint Tool")
+    s = input(f"{Fore.GREEN} Username > {Style.RESET_ALL}")
+    os.system(f"maigret {s}")
+    ask_next_action(maigret, osint, "OSINT")
+    
+    
+def socialscan():
+    menu_intro("SocialScan Osint Tool")
+    s = input(f"{Fore.GREEN} Username > {Style.RESET_ALL}")
+    os.system(f"socialscan {s}")
+    ask_next_action(socialscan, osint, "OSINT")
+
+
+tools = {
+    "maigret": maigret,
+    "sherlock": sherlock,
+    #"blackbird": blackbird,
+    #"wmn": wmn,
+    "socialscan": socialscan,
+    #"toutatis": toutatis,
+    #"osintgram": osintgram,
+    #"instaloader": instaloader,
+    #"igscraper": igscraper,
+    #"iglooter": iglooter,
+    #"holehe": holehe,
+    #"eyes": eyes,
+    #"ghunt": ghunt,
+    #"reconng": reconng,
+    #"mrholmes": mrholmes,
+    #"spiderfoot": spiderfoot,
+}
+
+tools_install = {
+    "sherlock": "sherlock-project",
+    "maigret": "maigret",
+    "socialscan": "socialscan"
+}
+
+       
 def osint():
     try:
         menu_intro("OSINT")
@@ -423,12 +512,46 @@ def osint():
 
         s = input(f"{Fore.GREEN} root@{username}/OSINT:~$ {Style.RESET_ALL}")
 
-        if s == "0":
-            return main()
+        match s:
+            case "0":
+                return main()
+            case "1":
+                setup("sherlock")
+            case "2":
+                setup("maigret")
+            #case "3":
+            #    blackbird()
+            #case "4":
+            #    WMN()
+            #case "5":
+            #    setup("socialscan")
+            #case "6":
+            #    toutatis()
+            #case "7":
+            #    osintgram()
+            #case "8":
+            #    instaloader()
+            #case "9":
+            #    igscraper()
+            #case "10":
+            #    iglooter()
+            #case "11":
+            #    holehe()
+            #case "12":
+            #    eyes()
+            #case "13":
+            #    GHunt()
+            #case "14":
+            #    ReconNg()
+            #case "15":
+            #    mrHolmes()
+            #case "15":
+            #    spiderfoot()
 
-        text_animation(f"\n{Fore.RED}[!] This section is still in developing :') {Style.RESET_ALL}", 0.02)
-        time.sleep(1)
-        main()
+        if s != "1" or s != "2" or s != "5":
+            text_animation(f"\n{Fore.RED}[!] This section is still in developing, only 1,2 and 5 is available now :') {Style.RESET_ALL}", 0.01)
+            time.sleep(3)
+            osint()
 
     except KeyboardInterrupt:
         close_program()
