@@ -61,6 +61,7 @@
 ### 🥷 **Phishing**
  - **Webcam Phishing**: Using L0p4-WebcamPhisher tool
  - **Credentials Phishing**: Using PyPhisher Tool
+ - **Link Masking**: Using *Phishing Link Obfuscator by L0p4*
 
 
 ---
