@@ -3,3 +3,4 @@ dnspython
 requests
 scapy
 python-whois
+pyshorteners
