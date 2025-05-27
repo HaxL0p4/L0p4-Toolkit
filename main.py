@@ -1043,7 +1043,7 @@ def update_lopa_toolkit():
         subprocess.run("git stash && git pull", shell=True, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
         main()
     except subprocess.CalledProcessError:
-        text_animation(f"\n{Fore.RED}[-] Error During The Update!...{Style.RESET_ALL}", 0.02)
+        text_animation(f"\n{Fore.RED}[-] Error During The Update!...{Style.RESET_ALL}\n", 0.02)
 
 
 def main():
