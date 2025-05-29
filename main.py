@@ -483,7 +483,7 @@ def phishing():
     try:
         menu_intro("Phishing")
         print(f" {Fore.CYAN}[{Fore.WHITE}1{Fore.CYAN}] Webcam Phishing")
-        print(f" [{Fore.WHITE}2{Fore.CYAN}] Credential Phishing")
+        print(f" [{Fore.WHITE}2{Fore.CYAN}] Credential & Location Phishing")
         print(f" [{Fore.WHITE}3{Fore.CYAN}] Phishing Link Obfuscator")
 
 
