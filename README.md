@@ -42,9 +42,8 @@
 - **Web Spy**: Spy on websites visited by a victim on their local network
 - **Netcat Listener**: Listen for incoming connections and interact with remote systems.
 
-### ⚙️ **Remote Access (Coming Soon)**
-- **Reverse Shell**: Gain remote access to a target machine.
-- **SSH Brute Force**: Perform brute-force attacks on SSH servers.
+### ⚙️ **Remote Access**
+- **Reverse Shell**: Gain remote access to a target machine using a FUD reverse shell.
 
 ### 🌐 **OSINT (Coming Soon)**
 - **Social Media OSINT**: Gather information from social media profiles.
