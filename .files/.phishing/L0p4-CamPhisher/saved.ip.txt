@@ -1,46 +1,8 @@
-IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: WhatsApp/2.2342.7 WIP: 2405:201:d00f:d81c:d0f1:9435:af41:d2df
- User-Agent: Mozilla/5.0 (Linux; Android 11) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.78 Mobile Safari/537.36IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: WhatsApp/2.2342.7 WIP: 2405:201:d00f:d81c:d0f1:9435:af41:d2df
- User-Agent: Mozilla/5.0 (Linux; Android 11) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.78 Mobile Safari/537.36IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: WhatsApp/2.2342.7 WIP: 2405:201:d00f:d81c:d0f1:9435:af41:d2df
- User-Agent: Mozilla/5.0 (Linux; Android 11) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.78 Mobile Safari/537.36IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: WhatsApp/2.2342.7 WIP: 2401:4900:1cbd:945d:f4f0:fb97:9e50:a897
- User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Mobile/15E148 Safari/604.1IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: WhatsApp/2.2342.7 WIP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: WhatsApp/2.2342.7 WIP: 106.217.74.8
- User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_0_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0.1 Mobile/15E148 Safari/604.1IP: 2405:201:d00f:d81c:9110:73f3:749e:ea0d
- User-Agent: WhatsApp/2.2342.7 WIP: 106.197.200.75
- User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_0_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0.1 Mobile/15E148 Safari/604.1IP: 106.197.200.75
- User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_0_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0.1 Mobile/15E148 Safari/604.1IP: 49.43.241.130
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 49.43.241.130
- User-Agent: WhatsApp/2.2342.7 WIP: 106.217.74.8
- User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_0_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0.1 Mobile/15E148 Safari/604.1IP: 49.43.241.130
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 106.197.204.51
- User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 17_0_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0.1 Mobile/15E148 Safari/604.1IP: 49.43.241.130
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0IP: 49.43.241.130
- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0
+IP: 93.38.72.111
+ User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:139.0) Gecko/20100101 Firefox/139.0IP: 93.38.72.111
+ User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:139.0) Gecko/20100101 Firefox/139.0IP: 93.38.136.30
+ User-Agent: WhatsApp/2.23.20.0IP: 82.145.215.206
+ User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1IP: 82.145.215.206
+ User-Agent: Go-http-client/1.1IP: 93.38.136.30
+ User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Mobile Safari/537.36 OPR/89.0.0.0IP: 93.38.136.30
+ User-Agent: WhatsApp/2.23.20.0

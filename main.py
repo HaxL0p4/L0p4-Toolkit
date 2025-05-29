@@ -103,16 +103,16 @@ def windows():
     
     menu = f"""
         {Fore.GREEN}{Style.BRIGHT}┌{'─'*50}┐
-        │{Fore.MAGENTA}{Style.BRIGHT}          L0p4 TOOLKIT - MAIN MENU           {Fore.GREEN}     │
-        ├{'─'*50}┤
-        │ {Fore.CYAN}[{Fore.WHITE}1{Fore.CYAN}] {Fore.LIGHTGREEN_EX}Network Scanner                        {Fore.GREEN}      │
-        │ {Fore.CYAN}[{Fore.WHITE}2{Fore.CYAN}] {Fore.LIGHTGREEN_EX}DoS Attack                              {Fore.GREEN}     │
-        │ {Fore.CYAN}[{Fore.WHITE}3{Fore.CYAN}] {Fore.LIGHTGREEN_EX}IP Geolocation                         {Fore.GREEN}      │
-        │ {Fore.CYAN}[{Fore.WHITE}4{Fore.CYAN}] {Fore.LIGHTGREEN_EX}CCTV Cam's                              {Fore.GREEN}     │
-        ├{'─'*50}┤
-        │ {Fore.CYAN}[{Fore.RED}0{Fore.CYAN}] {Fore.LIGHTRED_EX}Exit                                      {Fore.GREEN}   │
-        │ {Fore.CYAN}[{Fore.YELLOW}99{Fore.CYAN}] {Fore.YELLOW}Update L0p4 Toolkit                        {Fore.GREEN} │
-        └{'─'*50}┘
+            │{Fore.MAGENTA}{Style.BRIGHT}          L0p4 TOOLKIT - MAIN MENU           {Fore.GREEN}     │
+            ├{'─'*50}┤
+            │ {Fore.CYAN}[{Fore.WHITE}1{Fore.CYAN}] {Fore.LIGHTGREEN_EX}Network Scanner                        {Fore.GREEN}      │
+            │ {Fore.CYAN}[{Fore.WHITE}2{Fore.CYAN}] {Fore.LIGHTGREEN_EX}DoS Attack                              {Fore.GREEN}     │
+            │ {Fore.CYAN}[{Fore.WHITE}3{Fore.CYAN}] {Fore.LIGHTGREEN_EX}IP Geolocation                         {Fore.GREEN}      │
+            │ {Fore.CYAN}[{Fore.WHITE}4{Fore.CYAN}] {Fore.LIGHTGREEN_EX}CCTV Cam's                              {Fore.GREEN}     │
+            ├{'─'*50}┤
+            │ {Fore.CYAN}[{Fore.RED}0{Fore.CYAN}] {Fore.LIGHTRED_EX}Exit                                      {Fore.GREEN}   │
+            │ {Fore.CYAN}[{Fore.YELLOW}99{Fore.CYAN}] {Fore.YELLOW}Update L0p4 Toolkit                        {Fore.GREEN} │
+            └{'─'*50}┘
     """
     print(menu)
     s = input(f"{Fore.GREEN} root@{username}:~$ {Style.RESET_ALL}")
