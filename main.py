@@ -412,32 +412,43 @@ def revshell(template_c_path):
         os.chdir(temp_dir)
 
         text_animation(f"{Fore.YELLOW}[-] msfvenom not found, starting Metasploit installation...{Style.RESET_ALL}\n", 0.05)
-        subprocess.run(
+        if check_distro() == "debian_based":
+            subprocess.run(
             ["sudo", "apt", "install", "gpgv2", "autoconf", "bison", "build-essential", "postgresql",
              "libaprutil1", "libgmp3-dev", "libpcap-dev", "openssl", "libpq-dev", "libreadline6-dev",
              "libsqlite3-dev", "libssl-dev", "locate", "libsvn1", "libtool", "libxml2", "libxml2-dev",
              "libxslt-dev", "wget", "libyaml-dev", "ncurses-dev", "postgresql-contrib", "xsel",
              "zlib1g", "zlib1g-dev", "curl", "-y"],
             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
-        )
-        subprocess.run(
-            ["sudo", "curl", "https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb",
-             "-o", "msfinstall"],
-            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
-        )
-        subprocess.run(
-            ["sudo", "chmod", "755", "msfinstall"],
-            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
-        )
-        subprocess.run(
-            ["./msfinstall"],
-            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
-        )
+            )
+            subprocess.run(
+                ["sudo", "curl", "https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb",
+                 "-o", "msfinstall"],
+                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+            )
+            subprocess.run(
+                ["sudo", "chmod", "755", "msfinstall"],
+                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+            )
+            subprocess.run(
+                ["./msfinstall"],
+                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+            )
 
-        text_animation(f"{Fore.GREEN}[+] Metasploit Framework successfully installed!{Style.RESET_ALL}", 0.05)
-        os.chdir(current_dir)
-    else:
-        current_dir = os.getcwd()
+            text_animation(f"{Fore.GREEN}[+] Metasploit Framework successfully installed!{Style.RESET_ALL}", 0.05)
+            os.chdir(current_dir)
+        elif check_distro() == "arch_based":
+            subprocess.run(
+                ["sudo", "pacman", "-Sy", "--noconfirm", "base-devel", "postgresql", "libgmp", "libpcap", "openssl",
+                 "libpq", "readline", "sqlite", "curl", "wget", "ncurses", "zlib", "git"],
+                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+            )
+            subprocess.run(
+                ["yay", "-S", "--noconfirm", "metasploit"],
+                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+            )
+        else:
+            current_dir = os.getcwd()
 
     payload_dir = os.path.join(current_dir, "payloads")
     os.makedirs(payload_dir, exist_ok=True)
@@ -472,7 +483,6 @@ def revshell(template_c_path):
         )
         rc_path = rc_file.name
 
-    # Avvia msfconsole in nuovo terminale usando il file resource
     os.system(f'gnome-terminal -- bash -c "msfconsole -r {rc_path}; exec bash"')
     text_animation(f"\n{Fore.YELLOW}[i] Metasploit listener started in new terminal{Style.RESET_ALL}\n", 0.05)
 
