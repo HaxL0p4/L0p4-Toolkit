@@ -85,4 +85,4 @@ The installation process for L0p4 Framework is simple and straightforward. Follo
 
 The L0p4 Toolkit is still under active development. Features are constantly being added and improved. Please be patient and use the tool's update option to keep it up to date.
 
-It is highly recommended to use a Linux system because on Linux you will have very few functions available.
+It is highly recommended to use a Linux system because on Windows you will have very few functions available.
