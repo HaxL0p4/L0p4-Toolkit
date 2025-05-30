@@ -384,10 +384,6 @@ def remote_access():
             revshell(".files/.payload/main.c")
         case "0":
             main()
-    #text_animation(" Coming Soon ;) Returning at the menu in 3 sec...",0.01)
-    #time.sleep(3)
-    #main()
-    
     
 
 def update_c_file(c_file_path, ip, port, output_path):
@@ -487,22 +483,7 @@ def revshell(template_c_path):
     text_animation(f"\n{Fore.YELLOW}[i] Metasploit listener started in new terminal{Style.RESET_ALL}\n", 0.05)
 
 
-
-
-
-    
-
-
-
-
 ###############################################################################################################################
-
-def wireless_tools():
-    text_animation(f"{Fore.RED}Coming Soon...{Style.RESET_ALL}", 0.01)
-    time.sleep(1)
-    main()
-
-##########################################################################33333##33
 
 
 R = '\033[31m'  # red
@@ -521,8 +502,6 @@ def show_loading_screen():
             sys.stdout.flush()
             time.sleep(0.1)
     sys.stdout.write("\r\033[K") 
-
-
 
 
 def link_mask():
@@ -715,10 +694,10 @@ tools_install = {
 }
 
 
+# Still in development guys :')
 def osint():
     try:
         menu_intro("OSINT")
-        # ... [mantieni lo stesso menu grafico]
         
         text_animation(f"{Fore.RED}[!] This section is still in development...{Style.RESET_ALL}", 0.01)
         time.sleep(3)
@@ -743,7 +722,6 @@ def osint():
                 setup("holehe")
             case "13":
                 setup("ghunt")
-            # puoi aggiungere anche gli altri seguendo lo stesso schema
 
         #if s not in ["1", "2", "5", "6", "8", "11", "13"]:
         #    text_animation(f"\n{Fore.RED}[!] This section is still in development...{Style.RESET_ALL}", 0.01)
@@ -979,8 +957,8 @@ def dns_sniffer(iface, target_ip=""):
             if not target_ip or packet[IP].src == target_ip:
                 try:
                     domain = packet[DNSQR].qname.decode('utf-8').strip('.')
-                    main_domain = get_main_domain(domain)  # Ottieni il dominio principale
-                    print(f"{Fore.GREEN}[+] {packet[IP].src} requested: {main_domain}{Style.RESET_ALL}")  # Mostra solo il dominio principale
+                    main_domain = get_main_domain(domain)  
+                    print(f"{Fore.GREEN}[+] {packet[IP].src} requested: {main_domain}{Style.RESET_ALL}")  
                 except Exception as e:
                     print(f"{Fore.RED}[-] Error decoding DNS request: {e}{Style.RESET_ALL}")
     sniff(filter=f"udp port 53 and src {target_ip}", iface=iface, prn=process_packet, store=False)
@@ -1169,8 +1147,6 @@ def main():
         text_animation(f"                                \033[1;37mCreated by \033[1;31mL0pa 💻\033[0m\n", 0.0005)
         text_animation(f"{Fore.CYAN} \t\t\t\tTikTok: {Style.RESET_ALL}{Fore.LIGHTBLUE_EX}@_.l0pa._\n{Style.RESET_ALL}", 0.0005)
 
-        #print(f"{Fore.LIGHTCYAN_EX} --- Main Menu --- {Style.RESET_ALL}")
-
         menu = f"""
             {Fore.GREEN}{Style.BRIGHT}┌{'─'*50}┐
             │{Fore.MAGENTA}{Style.BRIGHT}          L0p4 TOOLKIT - MAIN MENU           {Fore.GREEN}     │
@@ -1218,7 +1194,6 @@ def main():
 
     except KeyboardInterrupt:
         close_program()
-
 
 
 if __name__ == '__main__':
