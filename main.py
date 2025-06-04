@@ -349,16 +349,19 @@ def web_hacking():
 
 def run_sqlmap(url):
     try:
-        command = f"sqlmap -u {url} --batch --level=5 --risk=3"
-        subprocess.run(command, shell=True)
-        ask_next_action(run_sqlmap, web_hacking, "Web Hacking")
+        if not is_command_available("sqlmap"):
+            # install sqlmap
+        else:
+            command = f"sqlmap -u {url} --batch --level=5 --risk=3"
+            subprocess.run(command, shell=True)
+            ask_next_action(run_sqlmap, web_hacking, "Web Hacking")
     except KeyboardInterrupt:
         close_program()
 
 
 def run_xsstrike(url):
     try:
-        command = f"python3 tools/XSStrike/xsstrike.py -u {url} --crawl"
+        command = f"python3 .files/.web./XSStrike/xsstrike.py -u {url} --crawl"
         subprocess.run(command, shell=True)
         ask_next_action(run_xsstrike, web_hacking, "Web Hacking")
     except KeyboardInterrupt:
