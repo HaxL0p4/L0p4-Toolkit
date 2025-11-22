@@ -74,7 +74,7 @@ The installation process for L0p4 Framework is simple and straightforward. Follo
    First, clone the repository to your local machine using `git`:
 
    ```bash
-   git clone [https://github.com/HaxL0p4/L0p4-Framework.git](https://github.com/HaxL0p4/L0p4-Toolkit.git)
+   git clone https://github.com/HaxL0p4/L0p4-Framework.git
    cd L0p4-Toolkit
    pip install -r requirements.txt --break-system-packages
    python3 main.py
